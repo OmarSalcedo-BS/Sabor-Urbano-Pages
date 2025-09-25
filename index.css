@@ -1177,3 +1177,83 @@ footer small {
         bottom: 0;
     }
 }
+/* Estilos para las notificaciones de productos agregados */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.added-notification {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Estilos para el pedido vacío */
+.empty-order {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* Estilos para el botón de enviar pedido deshabilitado */
+.btn:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+
+/* Mejoras para los items del pedido */
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+}
+
+.order-item:hover {
+    background-color: #f9f9f9;
+}
+
+.remove-item-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.remove-item-btn:hover {
+    background: #c82333;
+}
+
+.item-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.item-price {
+    margin-right: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
