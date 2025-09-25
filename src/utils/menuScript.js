@@ -56,14 +56,25 @@ const menuItems = [{
 }
 ];
 
+const BASE_PRICE = 5000;
+const ingredientPrices = {
+    beef: 8000,
+    chicken: 7000,
+    cheddar: 2000,
+    lettuce: 500,
+    tomato: 800,
+    onion: 600,
+    bbq: 1000
+};
+
 const menuGrid = document.querySelector('.menu-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const orderItemsContainer = document.querySelector('.order-items');
 const totalPriceElement = document.getElementById('total-price');
-const orderBox = document.querySelector('.order-box');
 
 let order = [];
 let total = 0;
+let customBurgerIngredients = [];
 
 function formatPrice(price) {
     return new Intl.NumberFormat('es-CO', {
@@ -80,6 +91,9 @@ function renderMenuItems(items) {
         itemDiv.classList.add('menu-item');
         itemDiv.setAttribute('data-id', item.id);
 
+        const customButton = item.category === 'hamburguesas' ?
+            '<button class="customize-btn" onclick="openBurgerModal()">Personalizar</button>' : '';
+
         itemDiv.innerHTML = `
             <div class="item-image-container">
                 <img src="${item.image}" alt="${item.name}">
@@ -88,6 +102,7 @@ function renderMenuItems(items) {
             <div class="item-info">
                 <h4>${item.name}</h4>
                 <p class="item-price">${formatPrice(item.price)}</p>
+                ${customButton}
             </div>
         `;
         menuGrid.appendChild(itemDiv);
@@ -97,6 +112,124 @@ function renderMenuItems(items) {
 function filterItems(category) {
     const filteredItems = category === 'todos' ? menuItems : menuItems.filter(item => item.category === category);
     renderMenuItems(filteredItems);
+}
+
+function openBurgerModal() {
+    const modal = document.getElementById('burger-modal');
+    if (modal) {
+        document.body.appendChild(modal);
+        modal.style.display = 'flex';
+        modal.style.zIndex = '999999';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        resetCustomBurger();
+    }
+}
+
+function closeBurgerModal() {
+    const modal = document.getElementById('burger-modal');
+    if (modal) {
+        modal.classList.add('closing');
+        setTimeout(() => {
+            modal.style.display = 'none';
+            modal.classList.remove('closing');
+        }, 300);
+    }
+}
+
+function resetCustomBurger() {
+    customBurgerIngredients = [];
+    const nameInput = document.getElementById('custom-burger-name');
+    if (nameInput) nameInput.value = '';
+
+    const checkboxes = document.querySelectorAll('#burger-modal input[type="checkbox"]');
+    checkboxes.forEach(cb => cb.checked = false);
+
+    const radios = document.querySelectorAll('#burger-modal input[type="radio"]');
+    radios.forEach(radio => radio.checked = false);
+
+    updateBurgerPreview();
+    updateCustomPrice();
+}
+
+function toggleIngredient(ingredient) {
+    const index = customBurgerIngredients.indexOf(ingredient);
+    if (index > -1) {
+        customBurgerIngredients.splice(index, 1);
+    } else {
+        if (['beef', 'chicken'].includes(ingredient)) {
+            customBurgerIngredients = customBurgerIngredients.filter(ing => !['beef', 'chicken'].includes(ing));
+        }
+        customBurgerIngredients.push(ingredient);
+    }
+    updateBurgerPreview();
+    updateCustomPrice();
+}
+
+function updateBurgerPreview() {
+    const preview = document.getElementById('burger-preview');
+    if (!preview) return;
+
+    const ingredientEmojis = {
+        beef: '🥩',
+        chicken: '🍗',
+        cheddar: '🧀',
+        lettuce: '🥬',
+        tomato: '🍅',
+        onion: '🧅',
+        bbq: '🍯'
+    };
+
+    let previewHTML = '<div class="bun-top">🍞</div>';
+    customBurgerIngredients.forEach(ingredient => {
+        previewHTML += `<div class="ingredient-layer">${ingredientEmojis[ingredient]}</div>`;
+    });
+    previewHTML += '<div class="bun-bottom">🍞</div>';
+
+    preview.innerHTML = previewHTML;
+}
+
+function updateCustomPrice() {
+    let totalPrice = BASE_PRICE;
+    customBurgerIngredients.forEach(ingredient => {
+        totalPrice += ingredientPrices[ingredient] || 0;
+    });
+    const totalElement = document.getElementById('custom-total');
+    if (totalElement) {
+        totalElement.textContent = formatPrice(totalPrice);
+    }
+}
+
+function addCustomBurger() {
+    if (customBurgerIngredients.length === 0) {
+        alert('Selecciona al menos un ingrediente');
+        return;
+    }
+
+    const nameInput = document.getElementById('custom-burger-name');
+    const burgerName = nameInput ? nameInput.value.trim() || 'Mi Hamburguesa Personalizada' : 'Mi Hamburguesa Personalizada';
+
+    let totalPrice = BASE_PRICE;
+    customBurgerIngredients.forEach(ingredient => {
+        totalPrice += ingredientPrices[ingredient] || 0;
+    });
+
+    const customBurger = {
+        id: Date.now(),
+        name: burgerName,
+        price: totalPrice,
+        category: 'hamburguesas',
+        custom: true,
+        ingredients: [...customBurgerIngredients]
+    };
+
+    order.push(customBurger);
+    updateOrderSummary();
+    closeBurgerModal();
+    showAddedNotification(burgerName);
 }
 
 filterBtns.forEach(btn => {
@@ -109,7 +242,7 @@ filterBtns.forEach(btn => {
 
 menuGrid.addEventListener('click', (e) => {
     const itemCard = e.target.closest('.menu-item');
-    if (itemCard) {
+    if (itemCard && !e.target.classList.contains('customize-btn')) {
         const itemId = parseInt(itemCard.getAttribute('data-id'));
         const itemToAdd = menuItems.find(item => item.id === itemId);
 
@@ -122,7 +255,6 @@ menuGrid.addEventListener('click', (e) => {
 });
 
 function showAddedNotification(itemName) {
-    // Crear notificación temporal
     const notification = document.createElement('div');
     notification.className = 'added-notification';
     notification.innerHTML = `
@@ -130,7 +262,6 @@ function showAddedNotification(itemName) {
         <span>${itemName} agregado al pedido</span>
     `;
 
-    // Agregar estilos inline para la notificación
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -150,7 +281,6 @@ function showAddedNotification(itemName) {
 
     document.body.appendChild(notification);
 
-    // Remover después de 2 segundos
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease-in';
         setTimeout(() => {
@@ -176,8 +306,15 @@ function updateOrderSummary() {
         const orderItemDiv = document.createElement('div');
         orderItemDiv.classList.add('order-item');
         orderItemDiv.setAttribute('data-index', index);
+
+        const customInfo = item.custom ?
+            `<small class="custom-info">Personalizada: ${item.ingredients.join(', ')}</small>` : '';
+
         orderItemDiv.innerHTML = `
-            <span class="item-name">${item.name}</span>
+            <div class="item-details">
+                <span class="item-name">${item.name}</span>
+                ${customInfo}
+            </div>
             <span class="item-price">${formatPrice(item.price)}</span>
             <button class="remove-item-btn" data-index="${index}"><i class="fas fa-trash"></i></button>
         `;
@@ -214,7 +351,6 @@ orderItemsContainer.addEventListener('click', (e) => {
     }
 });
 
-// Función para generar el mensaje de WhatsApp
 function generateWhatsAppMessage() {
     if (order.length === 0) {
         alert('Por favor, agrega al menos un producto a tu pedido.');
@@ -224,14 +360,14 @@ function generateWhatsAppMessage() {
     let message = '🍔 *PEDIDO SABOR URBANO* 🍔\n\n';
     message += '📋 *Detalles del pedido:*\n';
 
-    // Agrupar items por nombre para mostrar cantidades
     const groupedOrder = {};
     order.forEach(item => {
-        if (groupedOrder[item.name]) {
-            groupedOrder[item.name].quantity += 1;
-            groupedOrder[item.name].totalPrice += item.price;
+        const key = item.custom ? `${item.name} (${item.ingredients.join(', ')})` : item.name;
+        if (groupedOrder[key]) {
+            groupedOrder[key].quantity += 1;
+            groupedOrder[key].totalPrice += item.price;
         } else {
-            groupedOrder[item.name] = {
+            groupedOrder[key] = {
                 quantity: 1,
                 price: item.price,
                 totalPrice: item.price
@@ -239,7 +375,6 @@ function generateWhatsAppMessage() {
         }
     });
 
-    // Generar lista de productos
     Object.keys(groupedOrder).forEach(itemName => {
         const item = groupedOrder[itemName];
         message += `• ${item.quantity}x ${itemName}\n`;
@@ -251,31 +386,37 @@ function generateWhatsAppMessage() {
     message += '📞 *Teléfono de contacto:* _Por favor proporcionar_\n\n';
     message += '¡Gracias por elegir Sabor Urbano! 🙌';
 
-    // Codificar el mensaje para URL
     const encodedMessage = encodeURIComponent(message);
-
-    // Usar el número de WhatsApp que ya está en el HTML
-    const phoneNumber = '573187332952';
-
-    // Generar URL de WhatsApp
+    const phoneNumber = '573245022369';
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-    // Abrir WhatsApp
     window.open(whatsappURL, '_blank');
 }
 
-// Función para enviar pedido
 function sendOrder() {
     generateWhatsAppMessage();
 }
 
-// Event listener para el botón de enviar pedido
+window.openBurgerModal = openBurgerModal;
+window.closeBurgerModal = closeBurgerModal;
+window.toggleIngredient = toggleIngredient;
+window.resetCustomBurger = resetCustomBurger;
+window.addCustomBurger = addCustomBurger;
+
 document.addEventListener('DOMContentLoaded', () => {
     renderMenuItems(menuItems);
 
-    // Agregar event listener al botón de enviar pedido si existe
     const sendOrderBtn = document.getElementById('send-order-btn');
     if (sendOrderBtn) {
         sendOrderBtn.addEventListener('click', sendOrder);
+    }
+
+    const modal = document.getElementById('burger-modal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeBurgerModal();
+            }
+        });
     }
 });

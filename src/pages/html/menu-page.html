@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=|, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú - Sabor Urbano</title>
     <link rel="stylesheet" href="/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
                 </div>
                 <h3>Crea Tu Hamburguesa</h3>
                 <p>Personaliza cada ingrediente a tu gusto</p>
-                <a href="#" class="btn primary-btn">Personalizar Ahora</a>
+                <button class="btn primary-btn" onclick="openBurgerModal()">Personalizar Ahora</button>
             </div>
         </section>
 
@@ -81,7 +81,81 @@
                 </button>
             </div>
         </div>
+
     </main>
+
+    <!-- Modal para personalizar hamburguesa -->
+    <div id="burger-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🍔 Personaliza tu Hamburguesa</h3>
+                <span class="close" onclick="closeBurgerModal()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="burger-builder">
+                    <div class="burger-preview-section">
+                        <h4>Vista Previa</h4>
+                        <div id="burger-preview" class="burger-visual">
+                            <div class="bun-top">🍞</div>
+                            <div class="bun-bottom">🍞</div>
+                        </div>
+                        <input type="text" id="custom-burger-name" placeholder="Nombre tu hamburguesa..." maxlength="25">
+                    </div>
+                    
+                    <div class="ingredients-section">
+                        <h4>Ingredientes</h4>
+                        
+                        <div class="ingredient-group">
+                            <h5>🥩 Proteína (elige una)</h5>
+                            <label class="ingredient-option">
+                                <input type="radio" name="protein" value="beef" onchange="toggleIngredient('beef')">
+                                <span>Carne de Res (+$8.000)</span>
+                            </label>
+                            <label class="ingredient-option">
+                                <input type="radio" name="protein" value="chicken" onchange="toggleIngredient('chicken')">
+                                <span>Pollo Crispy (+$7.000)</span>
+                            </label>
+                        </div>
+                        
+                        <div class="ingredient-group">
+                            <h5>🧀 Extras</h5>
+                            <label class="ingredient-option">
+                                <input type="checkbox" value="cheddar" onchange="toggleIngredient('cheddar')">
+                                <span>Queso Cheddar (+$2.000)</span>
+                            </label>
+                            <label class="ingredient-option">
+                                <input type="checkbox" value="lettuce" onchange="toggleIngredient('lettuce')">
+                                <span>Lechuga (+$500)</span>
+                            </label>
+                            <label class="ingredient-option">
+                                <input type="checkbox" value="tomato" onchange="toggleIngredient('tomato')">
+                                <span>Tomate (+$800)</span>
+                            </label>
+                            <label class="ingredient-option">
+                                <input type="checkbox" value="onion" onchange="toggleIngredient('onion')">
+                                <span>Cebolla (+$600)</span>
+                            </label>
+                            <label class="ingredient-option">
+                                <input type="checkbox" value="bbq" onchange="toggleIngredient('bbq')">
+                                <span>Salsa BBQ (+$1.000)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div class="price-display">
+                    <span>Total: <strong id="custom-total">$5.000</strong></span>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn secondary-btn" onclick="resetCustomBurger()">Reiniciar</button>
+                    <button class="btn primary-btn" onclick="addCustomBurger()">Agregar al Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="/src/utils/menuScript.js"></script>
     <script src="/index.js"></script>
