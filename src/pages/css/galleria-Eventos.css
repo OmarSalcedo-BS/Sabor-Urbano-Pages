@@ -1,79 +1,233 @@
  /* Estilos para las galerías de eventos */
-        .evento-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-            padding: 15px 0;
-        }
+ .evento-gallery {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 15px;
+     margin-top: 20px;
+     padding: 15px 0;
+ }
 
-        .evento-photo {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+ .evento-photo {
+     width: 100%;
+     height: 400px;
+     object-fit: cover;
+     border-radius: 20px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     cursor: pointer;
+ }
 
-        .evento-photo:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
+ .evento-photo:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+ }
 
-        /* Responsive para tablets */
-        @media (max-width: 768px) {
-            .evento-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 10px;
-            }
+ /* Responsive para tablets */
+ @media (max-width: 768px) {
+     .evento-photo {
+         height: 300px;
+     }
+ }
 
-            .evento-photo {
-                height: 150px;
-            }
-        }
+ /* Responsive para móviles */
+ @media (max-width: 480px) {
+     .evento-photo {
+         height: 250px;
+     }
+ }
 
-        /* Responsive para móviles */
-        @media (max-width: 480px) {
-            .evento-gallery {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+ /* Mejora para la sección de eventos */
+ .eventos-grid {
+     display: flex;
+     flex-direction: column;
+     gap: 50px;
+     margin-top: 40px;
+ }
 
-            .evento-photo {
-                height: 180px;
-            }
-        }
+ .evento-card {
+     background: white;
+     padding: 40px;
+     border-radius: 20px;
+     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     display: grid;
+     grid-template-columns: 1fr 600px;
+     gap: 50px;
+     align-items: center;
+ }
 
-        /* Mejora para la sección de eventos */
-        .eventos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+ .evento-card:nth-child(even) {
+     grid-template-columns: 600px 1fr;
+ }
 
-        .evento-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+ .evento-card:nth-child(even) .evento-content {
+     order: 2;
+ }
 
-        .evento-card:hover {
-            transform: translateY(-5px);
-        }
+ .evento-card:nth-child(even) .evento-gallery {
+     order: 1;
+ }
 
-        /* Responsive para la grid de eventos */
-        @media (max-width: 768px) {
-            .eventos-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+ .evento-card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+ }
 
-            .evento-card {
-                padding: 20px;
-            }
-        }
+ .evento-content {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
+
+ .evento-header {
+     display: flex;
+     align-items: center;
+     gap: 15px;
+     margin-bottom: 15px;
+ }
+
+ .evento-icon {
+     font-size: 2.5rem;
+     color: #ff6b35;
+ }
+
+ .evento-card h3 {
+     margin: 0;
+     font-size: 1.8rem;
+     color: #333;
+ }
+
+ .evento-card p {
+     font-size: 1.1rem;
+     line-height: 1.6;
+     color: #666;
+     margin: 0;
+ }
+
+ /* Responsive para la grid de eventos */
+ @media (max-width: 1200px) {
+     .evento-card {
+         grid-template-columns: 1fr 500px;
+         gap: 40px;
+         padding: 35px;
+     }
+
+     .evento-card:nth-child(even) {
+         grid-template-columns: 500px 1fr;
+     }
+ }
+
+ @media (max-width: 968px) {
+     .evento-card {
+         grid-template-columns: 1fr 400px;
+         gap: 30px;
+         padding: 30px;
+     }
+
+     .evento-card:nth-child(even) {
+         grid-template-columns: 400px 1fr;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .eventos-grid {
+         gap: 40px;
+     }
+
+     .evento-card {
+         grid-template-columns: 1fr;
+         gap: 25px;
+         padding: 25px;
+     }
+
+     .evento-card:nth-child(even) {
+         grid-template-columns: 1fr;
+     }
+
+     .evento-card:nth-child(even) .evento-content {
+         order: 1;
+     }
+
+     .evento-card:nth-child(even) .evento-gallery {
+         order: 2;
+     }
+ }
+
+ /* Estilos para la sección de contenido nosotros */
+ .content-row {
+     display: grid;
+     grid-template-columns: 1fr 500px;
+     gap: 50px;
+     align-items: start;
+     margin-top: 40px;
+ }
+
+ .text-column {
+     padding-right: 20px;
+ }
+
+ .image-column {
+     position: relative;
+     width: 100%;
+     height: 400px;
+     overflow: hidden;
+     border-radius: 20px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+ }
+
+ .image-column img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.3s ease;
+ }
+
+ .image-column:hover img {
+     transform: scale(1.05);
+ }
+
+ /* Responsive para la sección de contenido */
+ @media (max-width: 1200px) {
+     .content-row {
+         grid-template-columns: 1fr 450px;
+         gap: 40px;
+     }
+
+     .image-column {
+         height: 350px;
+     }
+ }
+
+ @media (max-width: 968px) {
+     .content-row {
+         grid-template-columns: 1fr 400px;
+         gap: 30px;
+     }
+
+     .image-column {
+         height: 300px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .content-row {
+         grid-template-columns: 1fr;
+         gap: 40px;
+     }
+
+     .text-column {
+         padding-right: 0;
+     }
+
+     .image-column {
+         height: 300px;
+         margin: 0 auto;
+         max-width: 500px;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .image-column {
+         height: 250px;
+     }
+ }
