@@ -1,0 +1,79 @@
+ /* Estilos para las galerías de eventos */
+        .evento-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px 0;
+        }
+
+        .evento-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .evento-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive para tablets */
+        @media (max-width: 768px) {
+            .evento-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+
+            .evento-photo {
+                height: 150px;
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 480px) {
+            .evento-gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .evento-photo {
+                height: 180px;
+            }
+        }
+
+        /* Mejora para la sección de eventos */
+        .eventos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .evento-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .evento-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive para la grid de eventos */
+        @media (max-width: 768px) {
+            .eventos-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .evento-card {
+                padding: 20px;
+            }
+        }
