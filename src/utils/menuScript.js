@@ -4,7 +4,7 @@ const menuItems = [{
     price: 25000,
     category: 'hamburguesas',
     popular: true,
-    image: 'https://via.placeholder.com/400x300.png?text=Burger+1'
+    image: '/public/ProductosMenu/Hamburguesa.jpg'
 },
 {
     id: 2,
@@ -12,7 +12,7 @@ const menuItems = [{
     price: 32000,
     category: 'alitas',
     popular: true,
-    image: 'https://via.placeholder.com/400x300.png?text=Alitas+BBQ'
+    image: '/public/ProductosMenu/AlitasConPapas.jpg'
 },
 {
     id: 3,
@@ -20,31 +20,31 @@ const menuItems = [{
     price: 8000,
     category: 'papas',
     popular: false,
-    image: 'https://via.placeholder.com/400x300.png?text=Papas+Fritas'
+    image: '/public/ProductosMenu/productoextra.jpg'
 },
 {
     id: 4,
-    name: 'Mojito de Lulo',
+    name: 'Mojitos',
     price: 18000,
     category: 'cocteles',
     popular: false,
-    image: 'https://via.placeholder.com/400x300.png?text=Mojito+Lulo'
+    image: '/public/ProductosMenu/Coctel.jpg'
 },
 {
     id: 5,
-    name: 'Cerveza Club Colombia',
+    name: 'Corona',
     price: 7000,
     category: 'cervezas',
     popular: false,
-    image: 'https://via.placeholder.com/400x300.png?text=Cerveza'
+    image: '/public/ProductosMenu/Corona.png'
 },
 {
     id: 6,
-    name: 'Jugo de Maracuyá',
+    name: 'Perro Americano',
     price: 6000,
-    category: 'jugos',
+    category: 'perro',
     popular: false,
-    image: 'https://via.placeholder.com/400x300.png?text=Jugo'
+    image: '/public/ProductosMenu/Perro.jpg'
 },
 {
     id: 7,
@@ -52,7 +52,7 @@ const menuItems = [{
     price: 6000,
     category: 'cocteles',
     popular: true,
-    image: '../img/LogoPrincipal.jpg'
+    image: '/public/ProductosMenu/Coctel3.jpg'
 }
 ];
 
@@ -92,7 +92,7 @@ function renderMenuItems(items) {
         itemDiv.setAttribute('data-id', item.id);
 
         const customButton = item.category === 'hamburguesas' ?
-            '<button class="customize-btn" onclick="openBurgerModal()">Personalizar</button>' : '';
+            '<button class="customize-btn" data-action="customize">Personalizar</button>' : '';
 
         itemDiv.innerHTML = `
             <div class="item-image-container">
@@ -117,7 +117,6 @@ function filterItems(category) {
 function openBurgerModal() {
     const modal = document.getElementById('burger-modal');
     if (modal) {
-        document.body.appendChild(modal);
         modal.style.display = 'flex';
         modal.style.zIndex = '999999';
         modal.style.position = 'fixed';
@@ -241,6 +240,15 @@ filterBtns.forEach(btn => {
 });
 
 menuGrid.addEventListener('click', (e) => {
+    // Si se hace clic en el botón de personalizar
+    if (e.target.classList.contains('customize-btn') || e.target.getAttribute('data-action') === 'customize') {
+        e.preventDefault();
+        e.stopPropagation();
+        openBurgerModal();
+        return;
+    }
+
+    // Si se hace clic en cualquier otra parte del item (excepto el botón personalizar)
     const itemCard = e.target.closest('.menu-item');
     if (itemCard && !e.target.classList.contains('customize-btn')) {
         const itemId = parseInt(itemCard.getAttribute('data-id'));
@@ -413,6 +421,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('burger-modal');
     if (modal) {
+        // Asegurar que el modal esté oculto al cargar la página
+        modal.style.display = 'none';
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeBurgerModal();
