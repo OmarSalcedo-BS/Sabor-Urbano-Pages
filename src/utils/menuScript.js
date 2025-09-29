@@ -4,7 +4,7 @@ const menuItems = [{
     price: 25000,
     category: 'hamburguesas',
     popular: true,
-    image: '/public/ProductosMenu/Hamburguesa.jpg'
+    image: '../../../public/ProductosMenu/Hamburguesa.jpg'
 },
 {
     id: 2,
@@ -12,7 +12,7 @@ const menuItems = [{
     price: 32000,
     category: 'alitas',
     popular: true,
-    image: '/public/ProductosMenu/AlitasConPapas.jpg'
+    image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
 },
 {
     id: 3,

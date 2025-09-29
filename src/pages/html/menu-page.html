@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú - Sabor Urbano</title>
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="../../../index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Fallback crítico para asegurar que los estilos básicos se carguen */
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    </style>
 </head>
 
 <body>
@@ -17,17 +23,17 @@
     <header>
         <div class="container">
             <div class="main-logo">
-                <a href="/index.html">
-                    <img src="/public/LogoPrincipal.jpg" alt="Logo">
+                <a href="../../../index.html">
+                    <img src="../../../public/LogoPrincipal.jpg" alt="Logo">
                 </a>
                 <span class="logo-text">Sabor Urbano</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="/index.html">Inicio</a></li>
-                    <li><a href="/src/pages/html/menu-page.html">Menú</a></li>
-                    <li><a href="/src/pages/html/nosotros-web.html">Nosotros</a></li>
-                    <li><a href="/src/pages/html/contacto-page.html">Contacto</a></li>
+                    <li><a href="../../../index.html">Inicio</a></li>
+                    <li><a href="./menu-page.html">Menú</a></li>
+                    <li><a href="./nosotros-web.html">Nosotros</a></li>
+                    <li><a href="./contacto-page.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -158,8 +164,8 @@
         </div>
     </div>
 
-    <script src="/src/utils/menuScript.js"></script>
-    <script src="/index.js"></script>
+    <script src="../../utils/menuScript.js"></script>
+    <script src="../../../index.js"></script>
 
 </body>
 
