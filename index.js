@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
 
-    // Fade in inicial
+    // Fade in inicial más suave y que no interfiera con responsive
+    body.style.transition = 'opacity 0.3s ease';
     setTimeout(() => {
         body.style.opacity = '1';
-    }, 30);
+    }, 50);
 
-    // Función simplificada para transiciones
+    // Función de transición mejorada que no interfiere con responsive
     function handlePageTransition(e, href) {
         // Solo aplicar transición a enlaces internos válidos
         if (href &&
@@ -19,11 +20,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
             e.preventDefault();
 
-            body.style.opacity = '0';
+            // Crear overlay en lugar de modificar el body
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: white;
+                z-index: 9999;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+                pointer-events: none;
+            `;
 
+            document.body.appendChild(overlay);
+
+            // Fade in del overlay
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+            }, 10);
+
+            // Navegar después del fade
             setTimeout(() => {
                 window.location.href = href;
-            }, 100);
+            }, 150);
         }
     }
 
@@ -39,6 +61,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const href = link.getAttribute('href');
             handlePageTransition(e, href);
+        }
+    });
+
+    // Limpiar cualquier overlay residual al cargar
+    const existingOverlays = document.querySelectorAll('[style*="z-index: 9999"]');
+    existingOverlays.forEach(overlay => {
+        if (overlay.style.position === 'fixed') {
+            overlay.remove();
         }
     });
 });
