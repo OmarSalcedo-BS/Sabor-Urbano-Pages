@@ -20,7 +20,7 @@ const menuItems = [{
     price: 8000,
     category: 'papas',
     popular: false,
-    image: '/public/ProductosMenu/productoextra.jpg'
+    image: '../../../public/ProductosMenu/productoextra.jpg'
 },
 {
     id: 4,
@@ -28,7 +28,7 @@ const menuItems = [{
     price: 18000,
     category: 'cocteles',
     popular: false,
-    image: '/public/ProductosMenu/Coctel.jpg'
+    image: '../../../public/ProductosMenu/Coctel.jpg'
 },
 {
     id: 5,
@@ -36,7 +36,7 @@ const menuItems = [{
     price: 7000,
     category: 'cervezas',
     popular: false,
-    image: '/public/ProductosMenu/Corona.png'
+    image: '../../../public/ProductosMenu/Corona.png'
 },
 {
     id: 6,
@@ -44,7 +44,7 @@ const menuItems = [{
     price: 6000,
     category: 'perro',
     popular: false,
-    image: '/public/ProductosMenu/Perro.jpg'
+    image: '../../../public/ProductosMenu/Perro.jpg'
 },
 {
     id: 7,
@@ -52,7 +52,7 @@ const menuItems = [{
     price: 6000,
     category: 'cocteles',
     popular: true,
-    image: '/public/ProductosMenu/Coctel3.jpg'
+    image: '../../../public/ProductosMenu/Coctel3.jpg'
 }
 ];
 
