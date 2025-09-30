@@ -20,7 +20,7 @@ const menuItems = [{
     price: 8000,
     category: 'papas',
     popular: false,
-    image: '../../../public/ProductosMenu/productoextra.jpg'
+    image: '../../../public/ProductosMenu/Productoextra.jpg'
 },
 {
     id: 4,
