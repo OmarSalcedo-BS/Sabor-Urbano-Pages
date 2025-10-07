@@ -1,491 +1,59 @@
-const menuItems = [
-    // Hamburguesas
-    {
-        id: 1,
-        name: 'Hamburguesa Sencilla',
-        description: 'Pan, carne, lechuga, cebolla caramelizada, tomate y queso',
-        price: 19000,
-        category: 'hamburguesas',
-        popular: true,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 2,
-        name: 'Hamburguesa Especial',
-        description: 'Pan, carne, lechuga, cebolla caramelizada, tomate, queso y tocineta',
-        price: 15500,
-        category: 'hamburguesas',
-        popular: true,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 3,
-        name: 'Hamburguesa Doble Carne',
-        description: 'Pan, doble carne, lechuga, cebolla caramelizada, tomate, queso y tocineta',
-        price: 18500,
-        category: 'hamburguesas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 4,
-        name: 'Hamburguesa Urbana/Doble',
-        description: 'Pan, carne artesanal, lechuga, cebolla caramelizada, tomate, queso cheddar y tocineta',
-        price: 31000,
-        category: 'hamburguesas',
-        popular: true,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 5,
-        name: 'Hamburguesa Mix',
-        description: 'Pan, chuleta de pollo, carne, lechuga, cebolla caramelizada, pepino caramelizado, tomate, doble queso y tocineta',
-        price: 21500,
-        category: 'hamburguesas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 6,
-        name: 'Hamburguesa Desmechada',
-        description: 'Pan, carne y pollo desmechado, lechuga, cebolla caramelizada, tomate, queso y tocineta',
-        price: 19500,
-        category: 'hamburguesas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 7,
-        name: 'Hamburguesa Pollo',
-        description: 'Pan, chuleta de pollo, lechuga, cebolla caramelizada, tomate, queso y tocineta',
-        price: 19500,
-        category: 'hamburguesas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 8,
-        name: 'Hamburguesa Callejera',
-        description: 'Pan, carne, ensalada, tocineta, ripio de papa',
-        price: 15500,
-        category: 'hamburguesas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Hamburguesa.jpg'
-    },
-    {
-        id: 9,
-        name: 'Patacón',
-        description: 'Hogao, pollo, carne, huevo y guacamole',
-        price: 0, // Precio no visible en la imagen
-        category: 'especiales',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-
-    // Perros
-    {
-        id: 10,
-        name: 'Perrito',
-        description: 'Armalo como quieras en nuestra barra',
-        price: 6500,
-        category: 'perros',
-        popular: false,
-        image: '../../../public/ProductosMenu/Perro.jpg'
-    },
-    {
-        id: 11,
-        name: 'Perro Grande',
-        description: 'Pan, salchicha, queso, tocineta, adiciones de la barra',
-        price: 17000,
-        category: 'perros',
-        popular: false,
-        image: '../../../public/ProductosMenu/Perro.jpg'
-    },
-    {
-        id: 12,
-        name: 'Perro Americano',
-        description: 'Pan, salchicha americana, queso derretido, tocineta, adiciones de la barra',
-        price: 13000,
-        category: 'perros',
-        popular: true,
-        image: '../../../public/ProductosMenu/Perro.jpg'
-    },
-
-    // Carnes
-    {
-        id: 13,
-        name: 'Res',
-        description: 'Papas, arepa con queso, ensalada',
-        price: 26000,
-        category: 'carnes',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 14,
-        name: 'Cerdo',
-        description: 'Papas, arepa con queso, ensalada',
-        price: 24000,
-        category: 'carnes',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 15,
-        name: 'Chuzo de pollo Grande',
-        description: 'Papas, arepa con queso',
-        price: 21000,
-        category: 'carnes',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 16,
-        name: 'Chuzo de pollo Mediano',
-        description: 'Papas, arepa con queso',
-        price: 0, // Precio no visible en la imagen
-        category: 'carnes',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-
-    // Salchipapas
-    {
-        id: 17,
-        name: 'Salchipapa Sencilla',
-        description: 'Papas, salchicha, huevo',
-        price: 9000,
-        category: 'salchipapas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 18,
-        name: 'Salchipapa Especial',
-        description: 'Papas, salchicha, huevo, queso',
-        price: 13000,
-        category: 'salchipapas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 19,
-        name: 'Salchipapa Tocineta',
-        description: 'Papas, tocineta, huevo',
-        price: 11000,
-        category: 'salchipapas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 20,
-        name: 'Salchipapa Mixta',
-        description: 'Papas, salchicha, carne y pollo desmechado huevo, queso',
-        price: 21000,
-        category: 'salchipapas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 21,
-        name: 'Salchipapa Familiar',
-        description: 'Papas, salchicha, carne, pollo, tocineta, ripio de papa, butifarra y queso',
-        price: 35000,
-        category: 'salchipapas',
-        popular: true,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-
-    // Picada
-    {
-        id: 22,
-        name: 'Picada',
-        description: 'Papas, salchicha, carne, pollo, tocineta, butifarra, queso, tomate y lechuga',
-        price: 65000,
-        category: 'picada',
-        popular: true,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 23,
-        name: 'Picada Especial',
-        description: 'Papas, salchicha, carne hamburguesa, tocineta, butifarra',
-        price: 43000,
-        category: 'picada',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-
-    // Alitas
-    {
-        id: 24,
-        name: 'Combo Alitas x 6',
-        description: 'Miel Mostaza, BBQ, BOQ Picante, Habanero, Tamarindo, Maracuyá, Uchuva',
-        price: 19000,
-        category: 'alitas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 25,
-        name: 'Combo Alitas x 10',
-        description: 'Miel Mostaza, BBQ, BOQ Picante, Habanero, Tamarindo, Maracuyá, Uchuva',
-        price: 25000,
-        category: 'alitas',
-        popular: true,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 26,
-        name: 'Combo Alitas x 12',
-        description: 'Miel Mostaza, BBQ, BOQ Picante, Habanero, Tamarindo, Maracuyá, Uchuva',
-        price: 29000,
-        category: 'alitas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 27,
-        name: 'Combo Alitas x 15',
-        description: 'Miel Mostaza, BBQ, BOQ Picante, Habanero, Tamarindo, Maracuyá, Uchuva',
-        price: 39000,
-        category: 'alitas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-    {
-        id: 28,
-        name: 'Combo Alitas x 30',
-        description: 'Miel Mostaza, BBQ, BOQ Picante, Habanero, Tamarindo, Maracuyá, Uchuva',
-        price: 72000,
-        category: 'alitas',
-        popular: false,
-        image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
-    },
-
-    // Adiciones
-    {
-        id: 29,
-        name: 'Papas',
-        price: 5000,
-        category: 'adiciones',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 30,
-        name: 'Huevos',
-        price: 3000,
-        category: 'adiciones',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 31,
-        name: 'Carne',
-        price: 6000,
-        category: 'adiciones',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 32,
-        name: 'Salchicha',
-        price: 2000,
-        category: 'adiciones',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 33,
-        name: 'Tocineta',
-        price: 3000,
-        category: 'adiciones',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 34,
-        name: 'Queso',
-        price: 3000,
-        category: 'adiciones',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-
-    // Jugos Naturales
-    {
-        id: 35,
-        name: 'Agua',
-        price: 6000,
-        category: 'jugos',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 36,
-        name: 'Leche',
-        price: 8000,
-        category: 'jugos',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 37,
-        name: 'Limonada Cerezada',
-        price: 9000,
-        category: 'jugos',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-    {
-        id: 38,
-        name: 'Limonada Coco',
-        price: 10000,
-        category: 'jugos',
-        popular: false,
-        image: '../../../public/ProductosMenu/productoextra.jpg'
-    },
-
-    // Cervezas
-    {
-        id: 39,
-        name: 'Aguila',
-        price: 4000,
-        category: 'cervezas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-    {
-        id: 40,
-        name: 'Pilsen',
-        price: 4000,
-        category: 'cervezas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-    {
-        id: 41,
-        name: 'Heineken',
-        price: 4000,
-        category: 'cervezas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-    {
-        id: 42,
-        name: 'Coronita',
-        price: 4000,
-        category: 'cervezas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-    {
-        id: 43,
-        name: 'Corona',
-        price: 7500,
-        category: 'cervezas',
-        popular: true,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-    {
-        id: 44,
-        name: '3 Cordilleras',
-        price: 6500,
-        category: 'cervezas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-    {
-        id: 45,
-        name: 'Club Lata',
-        price: 4500,
-        category: 'cervezas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-    {
-        id: 46,
-        name: 'Amper Energizante',
-        price: 4000,
-        category: 'cervezas',
-        popular: false,
-        image: '../../../public/ProductosMenu/Corona.png'
-    },
-
-    // Cocteles
-    {
-        id: 47,
-        name: 'Smirnof',
-        price: 11000,
-        category: 'cocteles',
-        popular: false,
-        image: '../../../public/ProductosMenu/Coctel.jpg'
-    },
-    {
-        id: 48,
-        name: 'Mojito',
-        price: 11000,
-        category: 'cocteles',
-        popular: true,
-        image: '../../../public/ProductosMenu/Coctel.jpg'
-    },
-    {
-        id: 49,
-        name: 'Mikes',
-        price: 9500,
-        category: 'cocteles',
-        popular: false,
-        image: '../../../public/ProductosMenu/Coctel3.jpg'
-    },
-    {
-        id: 50,
-        name: 'Curazado',
-        price: 11000,
-        category: 'cocteles',
-        popular: false,
-        image: '../../../public/ProductosMenu/Coctel.jpg'
-    },
-    {
-        id: 51,
-        name: 'Michelada Soda',
-        price: 8500,
-        category: 'cocteles',
-        popular: false,
-        image: '../../../public/ProductosMenu/Coctel.jpg'
-    },
-    {
-        id: 52,
-        name: 'Michelada Cerveza',
-        price: 10000,
-        category: 'cocteles',
-        popular: false,
-        image: '../../../public/ProductosMenu/Coctel.jpg'
-    },
-    {
-        id: 53,
-        name: 'JP Chanel',
-        price: 12000,
-        category: 'cocteles',
-        popular: false,
-        image: '../../../public/ProductosMenu/Coctel3.jpg'
-    },
-    {
-        id: 54,
-        name: 'Corona Envenenada',
-        price: 11000,
-        category: 'cocteles',
-        popular: false,
-        image: '../../../public/ProductosMenu/Coctel.jpg'
-    },
-    {
-        id: 55,
-        name: 'Michelada Fushion',
-        price: 19000,
-        category: 'cocteles',
-        popular: true,
-        image: '../../../public/ProductosMenu/Coctel3.jpg'
-    }
+const menuItems = [{
+    id: 1,
+    name: 'Hamburguesa Clásica',
+    price: 25000,
+    category: 'hamburguesas',
+    popular: true,
+    image: '../../../public/ProductosMenu/Hamburguesa.jpg'
+},
+{
+    id: 2,
+    name: 'Alitas BBQ (8 pz)',
+    price: 32000,
+    category: 'alitas',
+    popular: true,
+    image: '../../../public/ProductosMenu/AlitasConPapas.jpg'
+},
+{
+    id: 3,
+    name: 'Papas a la francesa',
+    price: 8000,
+    category: 'papas',
+    popular: false,
+    image: '../../../public/ProductosMenu/productoextra.jpg'
+},
+{
+    id: 4,
+    name: 'Mojitos',
+    price: 18000,
+    category: 'cocteles',
+    popular: false,
+    image: '../../../public/ProductosMenu/Coctel.jpg'
+},
+{
+    id: 5,
+    name: 'Corona',
+    price: 7000,
+    category: 'cervezas',
+    popular: false,
+    image: '../../../public/ProductosMenu/Corona.png'
+},
+{
+    id: 6,
+    name: 'Perro Americano',
+    price: 6000,
+    category: 'perro',
+    popular: false,
+    image: '../../../public/ProductosMenu/Perro.jpg'
+},
+{
+    id: 7,
+    name: 'Mojito de mango',
+    price: 6000,
+    category: 'cocteles',
+    popular: true,
+    image: '../../../public/ProductosMenu/Coctel3.jpg'
+}
 ];
 
 const BASE_PRICE = 5000;

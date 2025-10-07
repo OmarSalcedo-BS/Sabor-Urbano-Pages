@@ -2009,3 +2009,42 @@ footer small {
         gap: 15px !important;
     }
 }
+
+.whatsapp-flotante {
+    /* Posicionamiento Fijo para que "flote" */
+    position: fixed;
+    bottom: 20px; /* Separación del borde inferior */
+    right: 20px; /* Separación del borde derecho */
+    
+    /* Estilo Visual */
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: white;
+    border-radius: 50%; /* Lo hace un círculo */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+    display: flex; /* Para centrar el ícono */
+    justify-content: center;
+    align-items: center;
+    font-size: 30px; /* Tamaño del ícono de Font Awesome */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para que destaque */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para efectos hover */
+}
+
+/* Efecto al pasar el mouse */
+.whatsapp-flotante:hover {
+    background-color: #128C7E; /* Un verde un poco más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Ligeramente más grande al hacer hover */
+}
+
+/* Consideraciones para dispositivos móviles */
+@media (max-width: 768px) {
+    .whatsapp-flotante {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
