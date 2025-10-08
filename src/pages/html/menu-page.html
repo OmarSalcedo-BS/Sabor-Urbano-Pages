@@ -53,15 +53,16 @@
             <div class="category-filters">
                 <button class="filter-btn active" data-category="todos">Todos</button>
                 <button class="filter-btn" data-category="hamburguesas">Hamburguesas</button>
-                <button class="filter-btn" data-category="perro">Perros</button>
+                <button class="filter-btn" data-category="perros">Perros</button>
+                <button class="filter-btn" data-category="carnes">Carnes</button>
+                <button class="filter-btn" data-category="salchipapas">Salchipapas</button>
+                <button class="filter-btn" data-category="picada">Picada</button>
                 <button class="filter-btn" data-category="alitas">Alitas</button>
-                <button class="filter-btn" data-category="papas">Papas</button>
-                <button class="filter-btn" data-category="cocteles">Cocteles</button>
-                <button class="filter-btn" data-category="cervezas">Cervezas</button>
+                <button class="filter-btn" data-category="adiciones">Adiciones</button>
                 <button class="filter-btn" data-category="jugos">Jugos</button>
-                <button class="filter-btn" data-category="gaseosas">Gaseosas</button>
+                <button class="filter-btn" data-category="cervezas">Cervezas</button>
+                <button class="filter-btn" data-category="cocteles">Cocteles</button>
                 <button class="filter-btn" data-category="especiales">Especiales</button>
-                <button class="filter-btn" data-category="otros">Otros</button>
             </div>
 
             <div class="menu-grid">
@@ -92,7 +93,7 @@
                 <h3>🍔 Personaliza tu Hamburguesa</h3>
                 <span class="close" onclick="closeBurgerModal()">&times;</span>
             </div>
-            
+
             <div class="modal-body">
                 <div class="burger-builder">
                     <div class="burger-preview-section">
@@ -101,12 +102,13 @@
                             <div class="bun-top">🍞</div>
                             <div class="bun-bottom">🍞</div>
                         </div>
-                        <input type="text" id="custom-burger-name" placeholder="Nombre tu hamburguesa..." maxlength="25">
+                        <input type="text" id="custom-burger-name" placeholder="Nombre tu hamburguesa..."
+                            maxlength="25">
                     </div>
-                    
+
                     <div class="ingredients-section">
                         <h4>Ingredientes</h4>
-                        
+
                         <div class="ingredient-group">
                             <h5>🥩 Proteína (elige una)</h5>
                             <label class="ingredient-option">
@@ -114,11 +116,12 @@
                                 <span>Carne de Res (+$8.000)</span>
                             </label>
                             <label class="ingredient-option">
-                                <input type="radio" name="protein" value="chicken" onchange="toggleIngredient('chicken')">
+                                <input type="radio" name="protein" value="chicken"
+                                    onchange="toggleIngredient('chicken')">
                                 <span>Pollo Crispy (+$7.000)</span>
                             </label>
                         </div>
-                        
+
                         <div class="ingredient-group">
                             <h5>🧀 Extras</h5>
                             <label class="ingredient-option">
@@ -145,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="modal-footer">
                 <div class="price-display">
                     <span>Total: <strong id="custom-total">$5.000</strong></span>
