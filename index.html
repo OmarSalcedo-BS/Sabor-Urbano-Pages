@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="./index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Licorice -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Licorice&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Story+Script&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- Licorice -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Aladin&family=Licorice&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -26,7 +28,7 @@
       <div class="container">
         <div class="main-logo">
           <a href="index.html">
-            <img src="./public/LogoPrincipal.jpg" alt="Logo" />
+            <!-- <img src="./public/LogoPrincipal.jpg" alt="Logo" /> -->
           </a>
           <span class="logo-text">Sabor Urbano</span>
         </div>
@@ -44,29 +46,121 @@
     <main>
       <section class="principal-seccion">
         <div class="principal-contenedor">
-          <h1>
-            ¡Bienvenido a <br />
-            Sabor Urbano!
-          </h1>
+          <h1>Sabor Urbano<br /></h1>
           <p>
-            Donde cada bocado es una experiencia y cada momento es delicioso.
-            <br />
-            <strong>Descubre el auténtico sabor del parche</strong><br />
-            con nuestra variedad de hamburguesas gourmet, <br />deliciosa comida
-            rápida y las mejores cervezas y cócteles de la ciudad.
+            Cada bocado es una experiencia y cada momento es
+            delicioso
           </p>
-          <div class="principal-buttons">
+
+          <!-- <div class="principal-buttons">
             <a href="./src/pages/html/menu-page.html" class="btn principal-btn"
               >Ver nuestro menú</a
             >
-            <a href="./src/pages/html/menu-page.html" class="btn secundario-btn"
-              >Ver menú completo <i class="fas fa-utensils"></i
-            ></a>
+          </div> -->
+        </div>
+      </section>
+      <section class="instagram-section">
+        <div class="container">
+          <h2>Síguenos en Instagram</h2>
+          <p>
+            No se pierda ni una, pues. Manténgase al día de nuestras últimas
+            creaciones y promociones.
+          </p>
+          <a
+            href="https://www.instagram.com/saborurbano219"
+            class="instagram-link"
+            target="_blank"
+          >
+            <i class="fab fa-instagram">saborurbano219</i>
+          </a>
+
+          <div class="instagram-gallery">
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/HamburguesaRecortda.jpg"
+                alt="Hamburguesa gourmet Sabor Urbano"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram">Burguers como nos gustan</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/Grani.jpg"
+                alt="Hamburguesa con papas"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram">¿Papas? ¡Que no falten!</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/AlitasConPapasRcortada.jpg"
+                alt="Alitas con papas"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram">Alistas, cogeles el sabor 😉</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/Perro.jpg"
+                alt="Perros calientes"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram">Chimbas de perr@s</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=400&fit=crop&crop=center"
+                alt="Carnes a la parrilla"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram">Carnes, Jugositas 🫣</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img src="" alt="Patacones con todo" />
+              <div class="post-overlay">
+                <i class="fab fa-instagram">Patacon !SiSeñor¡</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/CoctelRecortada.jpg"
+                alt="Deliciosos cócteles"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram">Bebidas ¿Ya probó los cócteles?</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img src="public/ProductosMenu/MilkshakeFresa.jpg" alt="Y más" />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"
+                  >Y más, pregunte por lo que no vea</i
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="instagram-cta">
+            <p>¡Etiquétanos en tus fotos y haz parte de nuestra galería!</p>
+            <span class="hashtag"
+              >#SaborUrbano #BurgersLovers #ComidaUrbana</span
+            >
           </div>
         </div>
       </section>
-
-      <section class="features-section">
+       <section class="features-section">
         <h2>¿Por qué elegir Sabor Urbano?</h2>
         <div class="features-container">
           <div class="feature-item">
@@ -90,88 +184,6 @@
           </div>
         </div>
       </section>
-
-      <section class="instagram-section">
-        <div class="container">
-          <h2>Síguenos en Instagram</h2>
-          <p>
-            No se pierda ni una, pues. Manténgase al día de nuestras últimas
-            creaciones y promociones.
-          </p>
-          <a
-            href="https://www.instagram.com/saborurbano219"
-            class="instagram-link"
-            target="_blank"
-          >
-            <i class="fab fa-instagram"></i> @saborurbano219
-          </a>
-
-          <div class="instagram-gallery">
-            <div class="instagram-post">
-              <img
-                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=400&fit=crop&crop=center"
-                alt="Hamburguesa gourmet Sabor Urbano"
-              />
-              <div class="post-overlay">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </div>
-            <div class="instagram-post">
-              <img
-                src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=400&h=400&fit=crop&crop=center"
-                alt="Hamburguesa con papas"
-              />
-              <div class="post-overlay">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </div>
-            <div class="instagram-post">
-              <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=400&fit=crop&crop=center"
-                alt="Pizza artesanal"
-              />
-              <div class="post-overlay">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </div>
-            <div class="instagram-post">
-              <img
-                src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=400&fit=crop&crop=center"
-                alt="Bebidas refrescantes"
-              />
-              <div class="post-overlay">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </div>
-            <div class="instagram-post">
-              <img
-                src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=400&fit=crop&crop=center"
-                alt="Hamburguesa doble carne"
-              />
-              <div class="post-overlay">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </div>
-            <div class="instagram-post">
-              <img
-                src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=400&fit=crop&crop=center"
-                alt="Hamburguesa vegetariana"
-              />
-              <div class="post-overlay">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="instagram-cta">
-            <p>¡Etiquétanos en tus fotos y haz parte de nuestra galería!</p>
-            <span class="hashtag"
-              >#SaborUrbano #BurgersLovers #ComidaUrbana</span
-            >
-          </div>
-        </div>
-      </section>
-      ---
       <section class="cta-section">
         <h2>¿Listo para una experiencia única?</h2>
         <p>¿Qué espera, pues? Arme el parche y pida sin pena.</p>
@@ -179,7 +191,7 @@
           href="https://wa.me/573245022369"
           target="_blank"
           class="btn whatsapp-btn"
-          ><i class="fab fa-whatsapp"></i> Ordenar por WhatsApp</a
+          ><i class="fab fa-whatsapp">Ordena por WhatsApp</i></a
         >
       </section>
     </main>
