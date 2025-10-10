@@ -29,10 +29,11 @@ body {
 }
 
 header {
-  background: white;
+  background: black;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
+  height: 0px;
   z-index: 1000;
 }
 
@@ -59,9 +60,11 @@ header .container {
 }
 
 .logo-text {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--accent-color);
+  font-family: "Licorice", cursive;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2rem;
+  color: var(--warning-color);
   position: relative;
   padding-left: 20px;
   transition: color 0.3s ease;
@@ -73,7 +76,7 @@ header .container {
 }
 
 .main-logo:hover .logo-text {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 nav ul {
@@ -86,10 +89,14 @@ nav ul li {
 }
 
 nav a {
+  font-family: "Licorice", cursive;
+  font-weight: 550;
+  font-style: normal;
   text-decoration: none;
-  color: var(--dark-color);
-  font-weight: 700;
+  color: var(--warning-color);
+  font-weight: 600;
   transition: color 0.3s ease;
+  font-size: 250%;
 }
 
 nav a:hover {
@@ -108,18 +115,23 @@ nav a:hover {
 }
 
 .principal-seccion {
-  height: 100vh;
+  font-size: 125%;
+  height: 90vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: left;
-  background: linear-gradient(
-    to right,
-    var(--secondary-color),
-    var(--primary-color)
-  );
+  background-image: url(public/ProductosMenu/Grani.jpg);
   color: white;
   padding-top: 80px;
+  background-size: cover;
+
+  /* 2. Evita que la imagen se repita si es pequeña */
+  background-repeat: no-repeat;
+
+  /* 3. Opcional: Centra la imagen en el contenedor */
+  background-position: center -75vh;
+  height: 73vh;
 }
 
 .principal-contenedor {
@@ -128,17 +140,23 @@ nav a:hover {
 }
 
 .principal-contenedor h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-family: "Licorice", cursive;
+  font-weight: 5;
+  font-style: normal;
+  position: relative;
+  font-size: 7.2rem;
   margin-bottom: 20px;
   line-height: 1.1;
-  color: white;
+  color: var(--dark-color);
 }
 
 .principal-contenedor p {
-  font-size: 1.2rem;
+  font-family: "Licorice", cursive;
+  font-style: oblique;
+  font-weight: 600;
+  font-size: 3rem;
   margin-bottom: 30px;
-  color: #f0f0f0;
+  color: var(--dark-color);
 }
 
 .btn {
@@ -151,17 +169,20 @@ nav a:hover {
 }
 
 .principal-btn {
-  background-color: var(--primary-color);
+  border-radius: 50px;
+  background-color: var(--dark-color);
   color: white;
   border: none;
 }
 
 .principal-btn:hover {
-  background-color: var(--accent-color);
+  background-color: white transparent;
   color: var(--warning-color);
 }
 
 .secundario-btn {
+  color: var(--dark-color);
+  border-radius: 35px;
   background-color: white;
   border: 1px solid white;
   width: 250px;
@@ -170,12 +191,12 @@ nav a:hover {
 }
 
 .secundario-btn:hover {
-  background-color: var(--accent-color);
-  color: white;
-  border: 1px solid var(--warning-color);
+  background-color: var(--light-bg transparent);
+  color: var(--warning-color);
 }
 
 .features-section {
+  height: 65vh;
   text-align: center;
   padding: 80px 20px;
   background-color: var(--light-bg);
@@ -202,7 +223,7 @@ nav a:hover {
   height: 80px;
   border-radius: 50%;
   background-color: var(--light-bg);
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--dark-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,7 +232,7 @@ nav a:hover {
 
 .icon-circle i {
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: var(--dark-color);
 }
 
 .feature-item h3 {
@@ -228,8 +249,8 @@ nav a:hover {
 .instagram-section .container {
   max-width: 1200px;
   margin: 0 auto;
+  height: 145vh;
 }
-
 .instagram-section h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
@@ -319,11 +340,14 @@ nav a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    45deg,
-    rgba(240, 148, 51, 0.8),
-    rgba(230, 104, 60, 0.8)
-  );
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,6 +389,7 @@ nav a:hover {
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-top: 40px;
+  height: 20vh;
 }
 
 .instagram-cta p {
@@ -376,7 +401,7 @@ nav a:hover {
 
 .hashtag {
   display: inline-block;
-  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(45deg, var(--warning-color), var(--dark-color));
   color: white;
   padding: 8px 20px;
   border-radius: 20px;
@@ -387,14 +412,15 @@ nav a:hover {
 
 .cta-section {
   text-align: center;
-  padding: 80px 20px;
-  background-color: var(--secondary-color);
+  padding: 60px 15px;
+  background-color: var(--dark-color);
   color: white;
+  height: 42vh;
 }
 
 .cta-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .cta-section p {
@@ -404,9 +430,10 @@ nav a:hover {
 }
 
 .whatsapp-btn {
+  height: 34%;
   background-color: #25d366;
   color: white;
-  border: none;
+  border-radius: 30px;
 }
 
 .whatsapp-btn:hover {
@@ -427,6 +454,7 @@ footer {
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  height: 77vh;
 }
 
 .footer-info,
@@ -438,8 +466,8 @@ footer {
 .footer-info h3,
 .footer-contact h3,
 .footer-location h3 {
-  color: var(--primary-color);
-  margin-bottom: 20px;
+  color: var(--light-bg);
+  margin-bottom: 0vh;
   font-size: 1.5rem;
 }
 
