@@ -105,6 +105,33 @@ nav a:hover {
   color: var(--accent-color);
 }
 
+/* Mirror / reflection effect for the nav: subtle inverted copy beneath the nav */
+nav {
+  position: relative;
+}
+nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 40px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.0), rgba(255,255,255,0.6));
+  transform-origin: top center;
+  transform: scaleY(-1);
+  opacity: 0.25;
+  filter: blur(6px) saturate(0.9);
+}
+
+/* Optionally mirror the nav text itself for a stronger effect (desktop only) */
+@media (min-width: 768px) {
+  nav ul::after {
+    content: '';
+    display: block;
+  }
+}
+
 .redes-sociales a {
   color: var(--dark-color);
   margin-left: 15px;
@@ -214,11 +241,6 @@ nav a:hover {
   padding: 80px 20px;
   background-color: var(--light-bg);
 }
-/* .features-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  font-weight: 150;
-} */
 
 .features-container {
   display: flex;
