@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú - Sabor Urbano</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../../../index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/menu.css">
 </head>
 
 <body>
@@ -38,38 +40,16 @@
             <p>Descubre nuestros deliciosos platillos preparados con ingredientes frescos</p>
         </section>
 
-        <section class="custom-burger">
-            <div class="custom-box">
-                <div class="burger-icon-container">
-                    <img src="img/burger-icon.svg" alt="Ícono de hamburguesa">
-                </div>
-                <h3>Crea Tu Hamburguesa</h3>
-                <p>Personaliza cada ingrediente a tu gusto</p>
-                <button class="btn primary-btn" onclick="openBurgerModal()">Personalizar Ahora</button>
-            </div>
-        </section>
-
         <section class="menu-content">
-            <div class="category-filters">
-                <button class="filter-btn active" data-category="todos">Todos</button>
-                <button class="filter-btn" data-category="hamburguesas">Hamburguesas</button>
-                <button class="filter-btn" data-category="perros">Perros</button>
-                <button class="filter-btn" data-category="carnes">Carnes</button>
-                <button class="filter-btn" data-category="salchipapas">Salchipapas</button>
-                <button class="filter-btn" data-category="picada">Picada</button>
-                <button class="filter-btn" data-category="alitas">Alitas</button>
-                <button class="filter-btn" data-category="adiciones">Adiciones</button>
-                <button class="filter-btn" data-category="jugos">Jugos</button>
-                <button class="filter-btn" data-category="cervezas">Cervezas</button>
-                <button class="filter-btn" data-category="cocteles">Cocteles</button>
-                <button class="filter-btn" data-category="especiales">Especiales</button>
-            </div>
+       
+            <div id="category-cards" class="category-cards"></div>
 
+        
             <div class="menu-grid">
             </div>
         </section>
 
-        <div class="order-summary-sidebar">
+        <div class="order-summary-sidebar" id="order-sidebar">
             <div class="order-box">
                 <h4>Tu Pedido</h4>
                 <div class="order-items">
@@ -84,83 +64,12 @@
             </div>
         </div>
 
+        <button id="cart-toggle" class="cart-toggle" aria-label="Mostrar carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </button>
+
     </main>
-
-    <!-- Modal para personalizar hamburguesa -->
-    <div id="burger-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>🍔 Personaliza tu Hamburguesa</h3>
-                <span class="close" onclick="closeBurgerModal()">&times;</span>
-            </div>
-
-            <div class="modal-body">
-                <div class="burger-builder">
-                    <div class="burger-preview-section">
-                        <h4>Vista Previa</h4>
-                        <div id="burger-preview" class="burger-visual">
-                            <div class="bun-top">🍞</div>
-                            <div class="bun-bottom">🍞</div>
-                        </div>
-                        <input type="text" id="custom-burger-name" placeholder="Nombre tu hamburguesa..."
-                            maxlength="25">
-                    </div>
-
-                    <div class="ingredients-section">
-                        <h4>Ingredientes</h4>
-
-                        <div class="ingredient-group">
-                            <h5>🥩 Proteína (elige una)</h5>
-                            <label class="ingredient-option">
-                                <input type="radio" name="protein" value="beef" onchange="toggleIngredient('beef')">
-                                <span>Carne de Res (+$8.000)</span>
-                            </label>
-                            <label class="ingredient-option">
-                                <input type="radio" name="protein" value="chicken"
-                                    onchange="toggleIngredient('chicken')">
-                                <span>Pollo Crispy (+$7.000)</span>
-                            </label>
-                        </div>
-
-                        <div class="ingredient-group">
-                            <h5>🧀 Extras</h5>
-                            <label class="ingredient-option">
-                                <input type="checkbox" value="cheddar" onchange="toggleIngredient('cheddar')">
-                                <span>Queso Cheddar (+$2.000)</span>
-                            </label>
-                            <label class="ingredient-option">
-                                <input type="checkbox" value="lettuce" onchange="toggleIngredient('lettuce')">
-                                <span>Lechuga (+$500)</span>
-                            </label>
-                            <label class="ingredient-option">
-                                <input type="checkbox" value="tomato" onchange="toggleIngredient('tomato')">
-                                <span>Tomate (+$800)</span>
-                            </label>
-                            <label class="ingredient-option">
-                                <input type="checkbox" value="onion" onchange="toggleIngredient('onion')">
-                                <span>Cebolla (+$600)</span>
-                            </label>
-                            <label class="ingredient-option">
-                                <input type="checkbox" value="bbq" onchange="toggleIngredient('bbq')">
-                                <span>Salsa BBQ (+$1.000)</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <div class="price-display">
-                    <span>Total: <strong id="custom-total">$5.000</strong></span>
-                </div>
-                <div class="modal-actions">
-                    <button class="btn secondary-btn" onclick="resetCustomBurger()">Reiniciar</button>
-                    <button class="btn primary-btn" onclick="addCustomBurger()">Agregar al Pedido</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="../../utils/menuScript.js"></script>
     <script src="../../../index.js"></script>
 

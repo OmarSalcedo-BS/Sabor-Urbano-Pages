@@ -488,25 +488,16 @@ const menuItems = [
     }
 ];
 
-const BASE_PRICE = 5000;
-const ingredientPrices = {
-    beef: 8000,
-    chicken: 7000,
-    cheddar: 2000,
-    lettuce: 500,
-    tomato: 800,
-    onion: 600,
-    bbq: 1000
-};
+
 
 const menuGrid = document.querySelector('.menu-grid');
-const filterBtns = document.querySelectorAll('.filter-btn');
+const categoryCardsContainer = document.getElementById('category-cards');
 const orderItemsContainer = document.querySelector('.order-items');
 const totalPriceElement = document.getElementById('total-price');
 
 let order = [];
 let total = 0;
-let customBurgerIngredients = [];
+let cartToggleBtn = null;
 
 function formatPrice(price) {
     return new Intl.NumberFormat('es-CO', {
@@ -523,9 +514,7 @@ function renderMenuItems(items) {
         itemDiv.classList.add('menu-item');
         itemDiv.setAttribute('data-id', item.id);
 
-        const customButton = item.category === 'hamburguesas' ?
-            '<button class="customize-btn" data-action="customize">Personalizar</button>' : '';
-
+        const customButton = false; 
         const description = item.description ? `<p class="item-description">${item.description}</p>` : '';
         const priceDisplay = item.price > 0 ? formatPrice(item.price) : 'Consultar precio';
 
@@ -538,7 +527,7 @@ function renderMenuItems(items) {
                 <h4>${item.name}</h4>
                 ${description}
                 <p class="item-price">${priceDisplay}</p>
-                ${customButton}
+                
             </div>
         `;
         menuGrid.appendChild(itemDiv);
@@ -548,6 +537,40 @@ function renderMenuItems(items) {
 function filterItems(category) {
     const filteredItems = category === 'todos' ? menuItems : menuItems.filter(item => item.category === category);
     renderMenuItems(filteredItems);
+}
+
+function renderCategoryCards() {
+    // Obtener categorías únicas y contador
+    const categories = {};
+    menuItems.forEach(item => {
+        if (!categories[item.category]) categories[item.category] = { count: 0 };
+        categories[item.category].count += 1;
+    });
+
+    
+    categoryCardsContainer.innerHTML = '';
+    Object.keys(categories).forEach(cat => {
+        const card = document.createElement('div');
+        card.className = 'category-card';
+        card.setAttribute('data-category', cat);
+        // No mostrar contador: simplificar a solo el nombre de la categoría
+        card.innerHTML = `<h4>${cat}</h4>`;
+        card.addEventListener('click', () => {
+            // Marcar activa
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            filterItems(cat);
+            // En móviles, abrir el grid y ocultar sidebar si está abierto
+            const sidebar = document.getElementById('order-sidebar');
+            if (sidebar && !sidebar.classList.contains('closed')) sidebar.classList.add('closed');
+        });
+        categoryCardsContainer.appendChild(card);
+    });
+}
+
+function showPopularItems() {
+    const popular = menuItems.filter(i => i.popular);
+    renderMenuItems(popular);
 }
 
 function openBurgerModal() {
@@ -667,22 +690,26 @@ function addCustomBurger() {
     showAddedNotification(burgerName);
 }
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        filterItems(btn.getAttribute('data-category'));
+// Legacy: si existen botones de filtro (v. antigua), añadir manejadores pero de forma segura
+const legacyFilterBtns = document.querySelectorAll('.filter-btn');
+if (legacyFilterBtns && legacyFilterBtns.length) {
+    legacyFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            legacyFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterItems(btn.getAttribute('data-category'));
+        });
     });
-});
+}
+
+// Remove old filter button logic if not present
+if (!document.querySelectorAll('.filter-btn').length && categoryCardsContainer) {
+    renderCategoryCards();
+}
 
 menuGrid.addEventListener('click', (e) => {
     // Si se hace clic en el botón de personalizar
-    if (e.target.classList.contains('customize-btn') || e.target.getAttribute('data-action') === 'customize') {
-        e.preventDefault();
-        e.stopPropagation();
-        openBurgerModal();
-        return;
-    }
+    // removed custom burger click handling
 
     // Si se hace clic en cualquier otra parte del item (excepto el botón personalizar)
     const itemCard = e.target.closest('.menu-item');
@@ -768,6 +795,13 @@ function updateOrderSummary() {
 
     totalPriceElement.textContent = formatPrice(total);
     updateSendButton();
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const count = order.length;
+    const cartCountEls = document.querySelectorAll('.cart-count');
+    cartCountEls.forEach(el => el.textContent = count);
 }
 
 function updateSendButton() {
@@ -802,7 +836,7 @@ function generateWhatsAppMessage() {
     }
 
     let message = '🍔 *PEDIDO SABOR URBANO* 🍔\n\n';
-    message += '📋 *Detalles del pedido:*\n';
+    message += '📋 *Detalles del pedido:*\n\n';
 
     const groupedOrder = {};
     order.forEach(item => {
@@ -820,9 +854,9 @@ function generateWhatsAppMessage() {
     });
 
     Object.keys(groupedOrder).forEach(itemName => {
-        const item = groupedOrder[itemName];
-        message += `• ${item.quantity}x ${itemName}\n`;
-        message += `  ${formatPrice(item.price)} c/u = ${formatPrice(item.totalPrice)}\n\n`;
+        const it = groupedOrder[itemName];
+        message += `• ${it.quantity}x ${itemName}\n`;
+        message += `  ${formatPrice(it.price)} c/u = ${formatPrice(it.totalPrice)}\n\n`;
     });
 
     message += `💰 *TOTAL: ${formatPrice(total)}*\n\n`;
@@ -841,29 +875,77 @@ function sendOrder() {
     generateWhatsAppMessage();
 }
 
-window.openBurgerModal = openBurgerModal;
-window.closeBurgerModal = closeBurgerModal;
-window.toggleIngredient = toggleIngredient;
-window.resetCustomBurger = resetCustomBurger;
-window.addCustomBurger = addCustomBurger;
-
 document.addEventListener('DOMContentLoaded', () => {
-    renderMenuItems(menuItems);
+    // Render de categorías y contenido inicial
+    if (categoryCardsContainer) renderCategoryCards();
+    // Mostrar items populares por defecto
+    showPopularItems();
+
+    // Elementos del sidebar y botón del carrito (aseguramos que existan después del DOM)
+    const sidebar = document.getElementById('order-sidebar');
+    cartToggleBtn = document.getElementById('cart-toggle');
+
+    // Forzar que el sidebar esté cerrado al cargar la página
+    if (sidebar && !sidebar.classList.contains('closed')) {
+        sidebar.classList.add('closed');
+    }
+    // Asegurar que el botón del carrito sea visible al inicio
+    if (cartToggleBtn) cartToggleBtn.style.display = '';
+
+    // Helpers to open/close sidebar with backdrop and cart-toggle visibility
+    function openSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.remove('closed');
+        // hide cart toggle while sidebar is open
+        if (cartToggleBtn) cartToggleBtn.style.display = 'none';
+        // create backdrop
+        let backdrop = document.getElementById('order-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.id = 'order-backdrop';
+            Object.assign(backdrop.style, {
+                position: 'fixed',
+                inset: '0',
+                background: 'transparent',
+                zIndex: '998'
+            });
+            backdrop.addEventListener('click', () => {
+                closeSidebar();
+            });
+            document.body.appendChild(backdrop);
+        }
+    }
+
+    function closeSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.add('closed');
+        // show cart toggle again
+        if (cartToggleBtn) cartToggleBtn.style.display = '';
+        const backdrop = document.getElementById('order-backdrop');
+        if (backdrop && backdrop.parentNode) backdrop.parentNode.removeChild(backdrop);
+    }
+
+    if (cartToggleBtn && sidebar) {
+        cartToggleBtn.addEventListener('click', () => {
+            if (sidebar.classList.contains('closed')) openSidebar();
+            else closeSidebar();
+        });
+    }
+
+    // Inicializar contador del carrito
+    updateCartCount();
+
+    // En pantallas pequeñas, cerrar el sidebar por defecto
+    if (sidebar && window.innerWidth <= 820) {
+        sidebar.classList.add('closed');
+    }
 
     const sendOrderBtn = document.getElementById('send-order-btn');
     if (sendOrderBtn) {
         sendOrderBtn.addEventListener('click', sendOrder);
     }
 
+    // Asegurar que si existe un modal antiguo, esté oculto
     const modal = document.getElementById('burger-modal');
-    if (modal) {
-        // Asegurar que el modal esté oculto al cargar la página
-        modal.style.display = 'none';
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeBurgerModal();
-            }
-        });
-    }
+    if (modal) modal.style.display = 'none';
 });
