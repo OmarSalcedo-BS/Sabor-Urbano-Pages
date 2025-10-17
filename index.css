@@ -1703,22 +1703,6 @@ footer small {
   }
 }
 
-@media (max-width: 480px) {
-  .principal-contenedor h1 {
-    font-size: 2rem !important;
-  }
-
-  .features-container {
-    flex-direction: column !important;
-    gap: 30px !important;
-  }
-
-  .instagram-gallery {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 15px !important;
-  }
-}
-
 .whatsapp-flotante {
   position: fixed;
   bottom: 20px;
@@ -1756,6 +1740,7 @@ footer small {
     right: 15px;
   }
 }
+
 @keyframes pulso {
   0% {
     /* Estado inicial: Sombra de caja transparente (o semitransparente) sin expansión. */

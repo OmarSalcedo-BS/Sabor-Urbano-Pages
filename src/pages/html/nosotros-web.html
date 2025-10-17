@@ -15,9 +15,11 @@
       <link
     href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Licorice&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Story+Script&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
+        <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
 </head>
 
-<body>
+<body class="nosotros-page">
     <header>
         <div class="container">
             <div class="main-logo">
@@ -26,6 +28,11 @@
                 </a>
                 <span class="logo-text">Sabor Urbano</span>
             </div>
+            <button id="mobile-hamburger" class="mobile-hamburger" aria-label="Abrir menú">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
             <nav>
                 <ul>
                     <li><a href="../../../index.html">Inicio</a></li>
@@ -301,15 +308,6 @@
                     <li><small>Domicilio hasta las: 11:00 PM</small></li>
                 </ul>
             </div>
-            <div class="footer-location">
-                <h3>Nuestra Ubicación</h3>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!4v1757415893634!6m8!1m7!1sCS-Ty8DPbA54pvN8wPtDyA!2m2!1d6.264583645746831!2d-75.61447795119003!3f245.8778379086719!4f-13.010567666005414!5f0.7820865974627469"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
         </div>
     </footer>
     <a href="https://wa.me/573245022369" class="whatsapp-flotante" target="_blank"
@@ -317,6 +315,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script src="../../utils/mobile-nav.js"></script>
     <script src="../../../index.js"></script>
 </body>
 

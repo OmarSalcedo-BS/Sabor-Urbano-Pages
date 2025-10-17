@@ -294,6 +294,12 @@ footer p {
   .contact-info-block {
     padding: 30px;
   }
+
+  /* Ensure contact info fits inside its card on narrow screens */
+  .contact-info-block {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 }
 
 @media (max-width: 600px) {
@@ -309,4 +315,10 @@ footer p {
     width: 100%;
     text-align: center;
   }
+}
+
+/* Add extra bottom spacing on pages to avoid footer sticking to content on mobile */
+body.home-page main,
+body.nosotros-page main {
+  padding-bottom: 120px; /* leave room for floating buttons and footer */
 }

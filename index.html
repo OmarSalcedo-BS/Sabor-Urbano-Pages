@@ -14,20 +14,28 @@
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="./src/pages/css/responsive.css" />
+  <link rel="stylesheet" href="./src/pages/css/responsive.css" />
 </head>
 
-<body>
+<body class="home-page">
   <header>
     <div class="container">
       <div class="main-logo">
-        <a href="../../../index.html">
+        <a href="./index.html">
           <img src="./public/LogoPrincipal.jpg" alt="Logo Sabor Urbano" />
         </a>
         <span class="logo-text">Sabor Urbano</span>
       </div>
+      <!-- Mobile hamburger button (displayed via CSS in responsive rules) -->
+      <button id="mobile-hamburger" class="mobile-hamburger" aria-label="Abrir menú">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
       <nav>
         <ul>
-          <li><a href="../../../index.html" class="active">Inicio</a></li>
+          <li><a href="./index.html" class="active">Inicio</a></li>
           <li><a href="./src/pages/html/menu-page.html">Menú</a></li>
           <li><a href="./src/pages/html/nosotros-web.html">Nosotros</a></li>
           <li><a href="./src/pages/html/contacto-page.html">Contacto</a></li>
@@ -43,12 +51,6 @@
           Cada bocado es una experiencia y cada momento es
           delicioso
         </p>
-
-        <!-- <div class="principal-buttons">
-            <a href="./src/pages/html/menu-page.html" class="btn principal-btn"
-              >Ver nuestro menú</a
-            >
-          </div> -->
       </div>
     </section>
     <section class="instagram-section">
@@ -180,15 +182,6 @@
           <li>Domicilio hasta las: 11:00 PM</li>
         </ul>
       </div>
-      <div class="footer-location">
-        <h3>Nuestra Ubicación</h3>
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8359.642280527743!2d-75.62042407609331!3d6.264134178218224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44296439f20da3%3A0xedc2fb31aef30322!2sCl%2048DD%2C%20Medell%C3%ADn%2C%20San%20Javier%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1sen!2sco!4v1759802184749!5m2!1sen!2sco"
-            width="600" height="450" frameborder="0" style="border: 4px solid black" allowfullscreen=""
-            aria-hidden="false" tabindex="0" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
     </div>
   </footer>
   <a href="https://wa.me/573245022369" class="whatsapp-flotante" target="_blank"
@@ -196,6 +189,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <script src="./src/utils/mobile-nav.js"></script>
   <script type="module" src="./index.js"></script>
 </body>
 
