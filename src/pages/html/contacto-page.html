@@ -18,242 +18,149 @@
     />
   </head>
 
-  <body>
-    <header>
-      <div class="container">
-        <div class="main-logo">
-          <a href="../../../index.html">
-            <img src="../../../public/LogoPrincipal.jpg" alt="Logo" />
-          </a>
-          <span class="logo-text">Sabor Urbano</span>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="../../../index.html">Inicio</a></li>
-            <li><a href="./menu-page.html">Menú</a></li>
-            <li><a href="./nosotros-web.html">Nosotros</a></li>
-            <li><a href="./contacto-page.html">Contacto</a></li>
-          </ul>
-        </nav>
+<body class="contacto-page">
+  <!-- ====== MENÚ SUPERIOR ====== -->
+  <header>
+    <div class="container">
+      <div class="main-logo">
+        <a href="../../../index.html">
+          <img src="../../../public/LogoPrincipal.jpg" alt="Logo Sabor Urbano" />
+        </a>
+        <span class="logo-text"></span>
       </div>
-    </header>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="../../../index.html">Inicio</a></li>
+          <li><a href="./menu-page.html">Menú</a></li>
+          <li><a href="./nosotros-web.html">Nosotros</a></li>
+          <li><a href="./contacto-page.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="contacto-page"></main>
+  <!-- ====== HERO SECTION ====== -->
+  <section class="contacto-hero">
+    <h1>Contáctanos</h1>
+    <p>Estamos aquí para ayudarte con tus pedidos o cualquier consulta</p>
+  </section>
 
-    <main class="contacto-page">
-      <section class="contacto-hero">
-        <div class="container">
-          <h1>Contáctanos</h1>
-          <p>
-            Estamos aquí para ayudarte. Ponte en contacto con nosotros para
-            cualquier consulta, sugerencia o pedido especial.
-          </p>
-        </div>
-      </section>
+  <!-- ====== CONTENIDO DE CONTACTO ====== -->
+  <section class="contacto-content">
+    <div class="contact-form-container">
+      <!-- Información de contacto -->
+      <div class="contact-info-block">
+        <h2>Información de contacto</h2>
 
-      <section class="contacto-content">
-        <div class="container">
-          <div class="contact-form-container">
-            <div class="contact-info-block">
-              <h2>Información de Contacto</h2>
-              <div class="info-item">
-                <div class="info-icon"><i class="fas fa-phone"></i></div>
-                <div>
-                  <h4>Teléfono</h4>
-                  <p>+57 324 502 23 69</p>
-                  <p><small>Lun - Dom: 11:00 AM - 10:00 PM</small></p>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
-                <div>
-                  <h4>WhatsApp</h4>
-                  <p>+57 324 450 23 69</p>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="info-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  <h4>Dirección</h4>
-                  <p>Medellín, Colombia</p>
-                  <p><small>Domicilios en toda la ciudad</small></p>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="info-icon"><i class="fas fa-clock"></i></div>
-                <div>
-                  <h4>Horarios de Atención</h4>
-                  <p>Lunes - Domingo: 11:00 AM - 10:00 PM</p>
-                  <p><small>Domicilios hasta: 11:00 PM</small></p>
-                  <p><small>Pedidos en línea 24/7</small></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact-form-block">
-              <h2>Envíanos un Mensaje</h2>
-              <form id="contactForm">
-                <div class="form-group">
-                  <label for="nombre">Nombre *</label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    placeholder="Tu nombre completo"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="telefono">Teléfono</label>
-                  <input
-                    type="tel"
-                    id="telefono"
-                    name="telefono"
-                    placeholder="+57 300 123 4567"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="tu@email.com"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="asunto">Asunto *</label>
-                  <input
-                    type="text"
-                    id="asunto"
-                    name="asunto"
-                    placeholder="¿En qué podemos ayudarte?"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="mensaje">Mensaje *</label>
-                  <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    rows="4"
-                    placeholder="Cuéntanos más detalles..."
-                    required
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn primary-btn">
-                  <i class="fas fa-paper-plane"></i> Enviar Mensaje
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <div class="social-whatsapp-container">
-            <div class="social-box">
-              <h3>Síguenos en Redes Sociales</h3>
-              <p>
-                Mantente al día con nuestras últimas promociones y novedades
-              </p>
-              <div class="social-links">
-                <a
-                  href="https://www.instagram.com/saborurbano219"
-                  target="_blank"
-                  class="social-link instagram-link"
-                >
-                  <i class="fab fa-instagram"></i> Instagram
-                </a>
-              </div>
-            </div>
-            <div class="whatsapp-box">
-              <h3>Pedidos por WhatsApp</h3>
-              <p>
-                ¿Necesitas hacer un pedido rápido? Contáctanos directamente por
-                WhatsApp para una atención inmediata.
-              </p>
-              <a href="https://wa.me/573245022369" class="btn whatsapp-btn"
-                ><i class="fab fa-whatsapp"></i> Chatear por WhatsApp</a
-              >
-            </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Dirección</h4>
+            <p>Calle 123 #45-67, Medellín, Colombia</p>
           </div>
         </div>
-      </section>
 
-      <section class="location-section">
-        <div class="container">
-          <div class="location-box">
-            <h3>Cómo llegar:</h3>
-            <p>
-              ¡Caé por aquí! Estamos en el corazón de la ciudad, el parche te
-              espera
-            </p>
-          </div>
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8359.642280527743!2d-75.62042407609331!3d6.264134178218224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44296439f20da3%3A0xedc2fb31aef30322!2sCl%2048DD%2C%20Medell%C3%ADn%2C%20San%20Javier%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1sen!2sco!4v1759802184749!5m2!1sen!2sco"
-              width="600"
-              height="450"
-              frameborder="0"
-              style="border: 4px solid white"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Teléfono</h4>
+            <p>+57 300 123 4567</p>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer>
-      <div class="footer-container">
-        <div class="footer-info">
-          <h3>Sabor Urbano</h3>
-          <p>
-            Deliciosas hamburguesas gourmet y comida rápida de alta calidad.
-            Sabores únicos que conquistan cualquier paladar.
-          </p>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/saborurbano219" target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </div>
-        </div>
-        <div class="footer-contact">
-          <h3>Contáctanos</h3>
-          <ul>
-            <li><i class="fas fa-phone"></i> +57 324 450 2369</li>
-            <li><i class="fas fa-map-marker-alt"></i> Medellín</li>
-            <li><i class="fas fa-clock"></i> Lun - Dom: 11:00 AM - 10:00 PM</li>
-            <li><small>Domicilio hasta las: 11:00 PM</small></li>
-          </ul>
-        </div>
-        <div class="footer-location">
-          <h3>Nuestra Ubicación</h3>
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8359.642280527743!2d-75.62042407609331!3d6.264134178218224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44296439f20da3%3A0xedc2fb31aef30322!2sCl%2048DD%2C%20Medell%C3%ADn%2C%20San%20Javier%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1sen!2sco!4v1759802184749!5m2!1sen!2sco"
-              width="600"
-              height="450"
-              frameborder="0"
-              style="border: 4px solid transparent"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Correo electrónico</h4>
+            <p>contacto@saborurbano.com</p>
           </div>
         </div>
       </div>
-    </footer>
-    <a
-      href="https://wa.me/573245022369"
-      class="whatsapp-flotante"
-      target="_blank"
-      aria-label="Chatea con nosotros por WhatsApp"
-    >
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <script src="../../../index.js"></script>
-  </body>
+
+      <!-- Formulario -->
+      <div class="contact-form-block">
+        <h2>Envíanos un mensaje</h2>
+
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </div>
+
+          <button type="submit" class="primary-btn">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sección redes y WhatsApp -->
+    <div class="social-whatsapp-container">
+      <div class="social-box">
+        <h3>Síguenos en redes sociales</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank" class="social-link facebook-link">Facebook</a>
+          <a href="https://www.instagram.com" target="_blank" class="social-link"
+            style="background-color: #e1306c">Instagram</a>
+        </div>
+      </div>
+
+      <div class="whatsapp-box">
+        <h3>Escríbenos por WhatsApp</h3>
+        <p>
+          Haz tus pedidos o consultas al instante a través de nuestro canal de
+          atención directa.
+        </p>
+        <a href="https://wa.me/573001234567" target="_blank" class="primary-btn">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SECCIÓN MAPA ====== -->
+  <section class="location-section">
+    <div class="location-box">
+      <h3>Encuéntranos fácilmente</h3>
+      <p>
+        Visítanos en nuestra sede principal o realiza tu pedido para recoger.
+      </p>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8797902903885!2d-75.57429572418445!3d6.242866026189845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429bffce7cf73%3A0x6b28a5afeb547c48!2sMedell%C3%ADn!5e0!3m2!1ses-419!2sco!4v1689089112345!5m2!1ses-419!2sco"
+        width="100%" height="400" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Sabor Urbano. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ====== SCRIPT FORMULARIO ====== -->
+  <script>
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      Swal.fire({
+        icon: "success",
+        title: "¡Mensaje enviado!",
+        text: "Gracias por contactarnos, te responderemos pronto.",
+      });
+      form.reset();
+    });
+    
+  </script>
+  <script src="../../utils/scroll-contacto.js"></script>
+</body>
+
 </html>
