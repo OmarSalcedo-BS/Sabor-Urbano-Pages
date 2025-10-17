@@ -29,11 +29,13 @@ body {
 }
 
 header {
-  background: black;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.000001%); /* Opacidad mínima (0.1%) */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.0001); /* Corregida la sintaxis del color */
   position: fixed;
   width: 100%;
-  height: 0px;
+  height: 60px;
   z-index: 1000;
 }
 
@@ -63,7 +65,7 @@ header .container {
   font-family: "Licorice", cursive;
   font-weight: 600;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: var(--warning-color);
   position: relative;
   padding-left: 20px;
@@ -96,7 +98,7 @@ nav a {
   color: var(--warning-color);
   font-weight: 600;
   transition: color 0.3s ease;
-  font-size: 250%;
+  font-size: 6vh;
 }
 
 nav a:hover {
@@ -118,20 +120,31 @@ nav a:hover {
   font-size: 125%;
   height: 90vh;
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: flex-start;
   text-align: left;
   background-image: url(public/ProductosMenu/Grani.jpg);
   color: white;
   padding-top: 80px;
   background-size: cover;
-
   /* 2. Evita que la imagen se repita si es pequeña */
-  background-repeat: no-repeat;
-
+  /* background-repeat: no-repeat; */
   /* 3. Opcional: Centra la imagen en el contenedor */
   background-position: center -75vh;
-  height: 73vh;
+  height: 85vh;
+  position: relative;
+}
+.principal-seccion::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 9%; /* La altura del desvanecimiento */
+  
+  /* Gradiente que va de transparente a blanco. */
+  background: linear-gradient(to top, white, transparent);
+  z-index: 1;
 }
 
 .principal-contenedor {
@@ -154,7 +167,7 @@ nav a:hover {
   font-family: "Licorice", cursive;
   font-style: oblique;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3.2rem;
   margin-bottom: 30px;
   color: var(--dark-color);
 }
@@ -196,16 +209,16 @@ nav a:hover {
 }
 
 .features-section {
-  height: 65vh;
+  height: 58vh;
   text-align: center;
   padding: 80px 20px;
   background-color: var(--light-bg);
 }
-
-.features-section h2 {
+/* .features-section h2 {
   font-size: 2.5rem;
   margin-bottom: 50px;
-}
+  font-weight: 150;
+} */
 
 .features-container {
   display: flex;
@@ -238,6 +251,7 @@ nav a:hover {
 .feature-item h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  font-weight: 80;
 }
 
 .instagram-section {
@@ -255,12 +269,14 @@ nav a:hover {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: var(--dark-color);
+  font-weight: 50;
 }
 
 .instagram-section p {
   font-size: 1.1rem;
   color: #666;
   margin-bottom: 30px;
+
 }
 
 .instagram-link {
@@ -384,7 +400,7 @@ nav a:hover {
 }
 
 .instagram-cta {
-  background: white;
+  background: var(--light-bg);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -411,16 +427,32 @@ nav a:hover {
 }
 
 .cta-section {
+  
   text-align: center;
   padding: 60px 15px;
   background-color: var(--dark-color);
   color: white;
-  height: 42vh;
+  height: 39vh;
+  position: relative;
+  /* Asegura que la sección sea el punto de partida */
+  z-index: 1; 
 }
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9%; 
+  background: linear-gradient(to bottom, white 0%, transparent 80%);
+  pointer-events: none;
+  z-index: 1; }
 
 .cta-section h2 {
   font-size: 2.5rem;
   margin-bottom: 8px;
+  font-weight: 80;
 }
 
 .cta-section p {
@@ -454,7 +486,7 @@ footer {
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  height: 77vh;
+  height: 22vh;
 }
 
 .footer-info,
@@ -494,7 +526,7 @@ footer {
 }
 
 .footer-contact ul li i {
-  color: var(--primary-color);
+  color: var(--light-bg);
   margin-right: 10px;
 }
 
