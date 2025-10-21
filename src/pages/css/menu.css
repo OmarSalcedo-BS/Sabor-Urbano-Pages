@@ -265,3 +265,118 @@
 .remove-item-btn:hover {
   color: var(--dark-color);
 }
+
+.comentarios-section {
+    background-color: #f8f8f8; /* Un fondo ligeramente diferente para destacar */
+    padding: 40px 20px;
+    border-top: 1px solid #eee;
+}
+
+.comentarios-container {
+    max-width: 900px; /* Limita el ancho para mejor lectura */
+    margin: 0 auto;
+}
+
+.comentarios-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* --- Formulario de Comentarios --- */
+.comentario-form-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.nuevo-comentario-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.btn-enviar-comentario {
+    background-color: #FF5733; /* Color de acento de tu marca */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-enviar-comentario:hover {
+    background-color: #e04426;
+}
+
+/* --- Lista de Comentarios Existentes --- */
+.lista-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comentario-item {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #FF5733; /* Barra de acento para cada comentario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.comentario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.comentario-autor {
+    font-weight: bold;
+    color: #333;
+}
+
+.comentario-fecha {
+    color: #999;
+}
+
+.comentario-texto {
+    margin: 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Estilo para el botón de eliminar (solo visible para admins/propios usuarios) */
+.btn-eliminar-comentario {
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    font-size: 0.85em;
+    padding: 0;
+    margin-top: 5px;
+    transition: color 0.2s;
+    /* Para posicionar en la esquina, podrías usar absolute */
+    /* position: absolute;
+    top: 10px;
+    right: 15px; */
+}
+
+.btn-eliminar-comentario:hover {
+    color: #ff0000;
+}

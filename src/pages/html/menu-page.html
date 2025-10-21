@@ -73,6 +73,29 @@
         </button>
 
     </main>
+        <section class="comentarios-section">
+        <div class="comentarios-container">
+            <h2>Opiniones y Comentarios</h2>
+            
+            <div class="comentario-form-box">
+                <form id="form-nuevo-comentario" class="nuevo-comentario-form">
+                    <textarea 
+                        id="comentario-descripcion" 
+                        placeholder="Escribe tu opinión sobre nuestro menú..." 
+                        required
+                    ></textarea>
+                    <button type="submit" class="btn btn-enviar-comentario">
+                        <i class="fas fa-paper-plane"></i> Enviar Comentario
+                    </button>
+                </form>
+            </div>
+
+            <div id="lista-comentarios" class="lista-comentarios">
+                <p class="loading-message">Cargando comentarios...</p>
+            </div>
+        </div>
+    </section>
+
     <script src="../../utils/menuScript.js"></script>
     <script src="../../../index.js"></script>
 
