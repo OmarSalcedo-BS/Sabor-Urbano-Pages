@@ -1,196 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabor Urbano</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Licorice -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Licorice&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Story+Script&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Licorice -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sabor Urbano</title>
-  <link rel="stylesheet" href="./index.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Licorice&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Story+Script&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="./src/pages/css/responsive.css" />
-  <link rel="stylesheet" href="./src/pages/css/responsive.css" />
-</head>
-
-<body class="home-page">
-  <header>
-    <div class="container">
-      <div class="main-logo">
-        <a href="./index.html">
-          <img src="./public/LogoPrincipal.jpg" alt="Logo Sabor Urbano" />
-        </a>
-        <span class="logo-text">Sabor Urbano</span>
-      </div>
-      <!-- Mobile hamburger button (displayed via CSS in responsive rules) -->
-      <button id="mobile-hamburger" class="mobile-hamburger" aria-label="Abrir menú">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-      </button>
-      <nav>
-        <ul>
-          <li><a href="./index.html" class="active">Inicio</a></li>
-          <li><a href="./src/pages/html/menu-page.html">Menú</a></li>
-          <li><a href="./src/pages/html/nosotros-web.html">Nosotros</a></li>
-          <li><a href="./src/pages/html/contacto-page.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="principal-seccion">
-      <div class="principal-contenedor">
-        <h1>Sabor Urbano<br /></h1>
-        <p>
-          Cada bocado es una experiencia y cada momento es
-          delicioso
-        </p>
-      </div>
-    </section>
-    <section class="instagram-section">
+  <body>
+    <header>
       <div class="container">
-        <h2>Síguenos en Instagram</h2>
-        <p>
-          No se pierda ni una, pues. Manténgase al día de nuestras últimas
-          creaciones y promociones.
-        </p>
-        <a href="https://www.instagram.com/saborurbano219" class="instagram-link" target="_blank">
-          <i class="fab fa-instagram">saborurbano219</i>
-        </a>
-
-        <div class="instagram-gallery">
-          <div class="instagram-post">
-            <img src="public/ProductosMenu/HamburguesaRecortda.jpg" alt="Hamburguesa gourmet Sabor Urbano" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram"> Burguers como nos gustan</i>
-            </div>
-          </div>
-
-          <div class="instagram-post">
-            <img src="public/ProductosMenu/Grani.jpg" alt="Hamburguesa con papas" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram"> ¿Papas? ¡Que no falten!</i>
-            </div>
-          </div>
-
-          <div class="instagram-post">
-            <img src="public/ProductosMenu/AlitasConPapasRcortada.jpg" alt="Alitas con papas" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram"> Alitas, cogéles el sabor 😉</i>
-            </div>
-          </div>
-
-          <div class="instagram-post">
-            <img src="public/ProductosMenu/Perro.jpg" alt="Perros calientes" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram"> Chimbas de perr@s</i>
-            </div>
-          </div>
-
-          <div class="instagram-post">
-            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=400&fit=crop&crop=center"
-              alt="Carnes a la parrilla" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram"> Carnes, Jugositas 🫣</i>
-            </div>
-          </div>
-
-          <div class="instagram-post">
-            <img src="" alt="Patacones con todo" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram"> Patacon !Si Señor¡</i>
-            </div>
-          </div>
-
-          <div class="instagram-post">
-            <img src="public/ProductosMenu/CoctelRecortada.jpg" alt="Deliciosos cócteles" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram"> Bebidas ¿Ya probó los cócteles?</i>
-            </div>
-          </div>
-
-          <div class="instagram-post">
-            <img src="public/ProductosMenu/MilkshakeFresa.jpg" alt="Y más" />
-            <div class="post-overlay">
-              <i class="fab fa-instagram">Y más, pregunte por lo que no vea</i>
-            </div>
-          </div>
+        <div class="main-logo">
+          <a href="index.html">
+            <img src="./public/LogoPrincipal.jpg" alt="Logo" />
+          </a>
+          <span class="logo-text">Sabor Urbano</span>
         </div>
-
-        <div class="instagram-cta">
-          <p>¡Etiquétanos en tus fotos y haz parte de nuestra galería!</p>
-          <span class="hashtag">#SaborUrbano #BurgersLovers #ComidaUrbana</span>
-        </div>
+        <nav>
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./src/pages/html/menu-page.html">Menú</a></li>
+            <li><a href="./src/pages/html/nosotros-web.html">Nosotros</a></li>
+            <li><a href="./src/pages/html/contacto-page.html">Contacto</a></li>
+          </ul>
+        </nav>
       </div>
-    </section>
-    <section class="features-section">
-      <h2>¿Por qué elegir Sabor Urbano?</h2>
-      <div class="features-container">
-        <div class="feature-item">
-          <div class="icon-circle"><i class="fas fa-star"></i></div>
-          <h3>Calidad Premium</h3>
+    </header>
+
+    <main>
+      <section class="principal-seccion">
+        <div class="principal-contenedor">
+          <h1>Sabor Urbano<br /></h1>
+          <p>Cada bocado es una experiencia y cada momento es delicioso</p>
+
+          <!-- <div class="principal-buttons">
+            <a href="./src/pages/html/menu-page.html" class="btn principal-btn"
+              >Ver nuestro menú</a
+            >
+          </div> -->
+        </div>
+      </section>
+      <section class="instagram-section">
+        <div class="container">
+          <h2>Síguenos en Instagram</h2>
           <p>
-            Ingredientes frescos y de la más alta calidad en cada preparación.
+            No se pierda ni una, pues. Manténgase al día de nuestras últimas
+            creaciones y promociones.
           </p>
+          <a
+            href="https://www.instagram.com/saborurbano219"
+            class="instagram-link"
+            target="_blank"
+          >
+            <i class="fab fa-instagram">saborurbano219</i>
+          </a>
+
+          <div class="instagram-gallery">
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/HamburguesaRecortda.jpg"
+                alt="Hamburguesa gourmet Sabor Urbano"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"> Burguers como nos gustan</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/Grani.jpg"
+                alt="Hamburguesa con papas"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"> ¿Papas? ¡Que no falten!</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/AlitasConPapasRcortada.jpg"
+                alt="Alitas con papas"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"> Alitas, cogéles el sabor 😉</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/Perro.jpg"
+                alt="Perros calientes"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"> Chimbas de perr@s</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=400&fit=crop&crop=center"
+                alt="Carnes a la parrilla"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"> Carnes, Jugositas 🫣</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img src="" alt="Patacones con todo"/>
+              <div class="post-overlay">
+                <i class="fab fa-instagram"> Patacon !Si Señor¡</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img
+                src="public/ProductosMenu/CoctelRecortada.jpg"
+                alt="Deliciosos cócteles"
+              />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"> Bebidas ¿Ya probó los cócteles?</i>
+              </div>
+            </div>
+
+            <div class="instagram-post">
+              <img src="public/ProductosMenu/Productoextra.jpg" alt="Y más" />
+              <div class="post-overlay">
+                <i class="fab fa-instagram"
+                  >Y más, pregunte por lo que no vea</i>
+              </div>
+            </div>
+          </div>
+          <div class="instagram-cta">
+            <p>¡Etiquétanos en tus fotos y haz parte de nuestra galería!</p>
+            <span class="hashtag">#SaborUrbano #BurgersLovers #ComidaUrbana</span>
+          </div>
         </div>
-        <div class="feature-item">
-          <div class="icon-circle"><i class="fas fa-clock"></i></div>
-          <h3>Servicio Rápido</h3>
+      </section>
+      <section class="features-section">
+        <h2>¿Por qué elegir Sabor Urbano?</h2>
+        <div class="features-container">
+          <div class="feature-item">
+            <div class="icon-circle"><i class="fas fa-star"></i></div>
+            <h3>Calidad Premium</h3>
+            <p>
+              Ingredientes frescos y de la más alta calidad en cada preparación.
+            </p>
+          </div>
+          <div class="feature-item">
+            <div class="icon-circle"><i class="fas fa-clock"></i></div>
+            <h3>Servicio Rápido</h3>
+            <p>
+              Preparamos tu pedido en tiempo récord sin comprometer la calidad.
+            </p>
+          </div>
+          <div class="feature-item">
+            <div class="icon-circle"><i class="fas fa-motorcycle"></i></div>
+            <h3>Domicilios</h3>
+            <p>Llevamos el sabor urbano hasta la comodidad de tu hogar 😊.</p>
+          </div>
+        </div>
+      </section>
+      <section class="cta-section">
+        <h2>¿Listo para una experiencia única?</h2>
+        <p>¿Qué espera, pues? Arme el parche y pida sin pena.</p>
+        <a
+          href="https://wa.me/573245022369"
+          target="_blank"
+          class="btn whatsapp-btn"
+          ><i class="fab fa-whatsapp">Ordena por WhatsApp</i></a
+        >
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-info">
+          <h3>Sabor Urbano</h3>
           <p>
-            Preparamos tu pedido en tiempo récord sin comprometer la calidad.
+            Deliciosas hamburguesas gourmet y comida rápida de alta calidad.
+            Sabores únicos que conquistan cualquier paladar.
           </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          </div>
         </div>
-        <div class="feature-item">
-          <div class="icon-circle"><i class="fas fa-motorcycle"></i></div>
-          <h3>Domicilios</h3>
-          <p>Llevamos el sabor urbano hasta la comodidad de tu hogar 😊.</p>
+        <div class="footer-contact">
+          <h3>Contáctanos</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> +57 324 502 23 69</li>
+            <li><i class="fas fa-map-marker-alt"></i> Calle 111 # 46 -08</li>
+            <li><i class="fas fa-clock"></i> Lun - Dom: 11:00 AM - 10:00 PM</li>
+            <li>Domicilio hasta las: 11:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-location">
+          <!-- <h3>Nuestra Ubicación</h3> -->
+          <!-- <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8359.642280527743!2d-75.62042407609331!3d6.264134178218224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44296439f20da3%3A0xedc2fb31aef30322!2sCl%2048DD%2C%20Medell%C3%ADn%2C%20San%20Javier%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1sen!2sco!4v1759802184749!5m2!1sen!2sco"
+              width="600"
+              height="450"
+              frameborder="0"
+              style="border: 4px solid black"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div> -->
         </div>
       </div>
-    </section>
-    <section class="cta-section">
-      <h2>¿Listo para una experiencia única?</h2>
-      <p>¿Qué espera, pues? Arme el parche y pida sin pena.</p>
-      <a href="https://wa.me/573245022369" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp">Ordena
-          por WhatsApp</i></a>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-container">
-      <div class="footer-info">
-        <h3>Sabor Urbano</h3>
-        <p>
-          Deliciosas hamburguesas gourmet y comida rápida de alta calidad.
-          Sabores únicos que conquistan cualquier paladar.
-        </p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-        </div>
-      </div>
-      <div class="footer-contact">
-        <h3>Contáctanos</h3>
-        <ul>
-          <li><i class="fas fa-phone"></i> +57 324 502 23 69</li>
-          <li><i class="fas fa-map-marker-alt"></i> Calle 111 # 46 -08</li>
-          <li><i class="fas fa-clock"></i> Lun - Dom: 11:00 AM - 10:00 PM</li>
-          <li>Domicilio hasta las: 11:00 PM</li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-  <a href="https://wa.me/573245022369" class="whatsapp-flotante" target="_blank"
-    aria-label="Chatea con nosotros por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+    </footer>
 
-  <script src="./src/utils/mobile-nav.js"></script>
-  <script type="module" src="./index.js"></script>
-</body>
+    <a
+      href="https://wa.me/573245022369"
+      class="whatsapp-flotante"
+      target="_blank"
+      aria-label="Chatea con nosotros por WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>

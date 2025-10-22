@@ -53,9 +53,9 @@ header .container {
 }
 
 .main-logo img {
-  width: 50px;
-  height: 50px;
-  border-radius: 45%;
+  width: 45px;
+  height:45px;
+  border-radius: 50%;
   margin-right: -15px;
   z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -66,7 +66,7 @@ header .container {
   font-weight: 600;
   font-style: normal;
   font-size: 2.4rem;
-  color: var(--warning-color);
+  color: var(--secondary-color);
   position: relative;
   padding-left: 20px;
   transition: color 0.3s ease;
@@ -95,7 +95,7 @@ nav a {
   font-weight: 550;
   font-style: normal;
   text-decoration: none;
-  color: var(--warning-color);
+  color: #271803;
   font-weight: 600;
   transition: color 0.3s ease;
   font-size: 6vh;
@@ -110,18 +110,22 @@ nav {
   position: relative;
 }
 nav::after {
-  content: '';
+  content:'';
   position: absolute;
   left: 0;
   right: 0;
-  top: 100%;
-  height: 40px;
   pointer-events: none;
   background: linear-gradient(to bottom, rgba(255,255,255,0.0), rgba(255,255,255,0.6));
   transform-origin: top center;
-  transform: scaleY(-1);
+  transform: scaleY(-1) translateY(-1px);
+  margin-top: 1px;
   opacity: 0.25;
   filter: blur(6px) saturate(0.9);
+  line-height: 0; 
+  font-size: 0;
+  display: block;
+  top: 100%;
+  height: 40px;
 }
 
 /* Optionally mirror the nav text itself for a stronger effect (desktop only) */
@@ -155,10 +159,10 @@ nav::after {
   padding-top: 80px;
   background-size: cover;
   /* 2. Evita que la imagen se repita si es pequeña */
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   /* 3. Opcional: Centra la imagen en el contenedor */
   background-position: center -75vh;
-  height: 85vh;
+  height: 84vh;
   position: relative;
 }
 .principal-seccion::after {
@@ -181,13 +185,14 @@ nav::after {
 
 .principal-contenedor h1 {
   font-family: "Licorice", cursive;
-  font-weight: 5;
+  font-weight: 200;
   font-style: normal;
   position: relative;
-  font-size: 7.2rem;
+  font-size: 7.3rem;
   margin-bottom: 20px;
   line-height: 1.1;
   color: var(--dark-color);
+  bottom: -45px;
 }
 
 .principal-contenedor p {
@@ -439,7 +444,7 @@ nav::after {
 
 .hashtag {
   display: inline-block;
-  background: linear-gradient(45deg, var(--warning-color), var(--dark-color));
+  background: linear-gradient(45deg, var(--dark-color), var(--accent-color) );
   color: white;
   padding: 8px 20px;
   border-radius: 20px;
@@ -566,11 +571,12 @@ footer small {
 
 
 .nosotros-page {
-  padding-top: 100px;
+  padding-top: 0vh;
 }
 
 .nosotros-hero {
   height: 60vh;
+  padding-top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -818,6 +824,7 @@ footer small {
 
   .menu-page {
     padding-top: 80px;
+    height: 100px;
   }
 
   .category-filters {
@@ -1755,3 +1762,4 @@ footer small {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
   }
 }
+
