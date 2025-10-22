@@ -6,10 +6,10 @@ El objetivo principal es demostrar nuestras habilidades en el desarrollo web, ta
 Además, se busca que el proyecto sea una demostración de nuestro conocimiento en el uso de herramientas y tecnologías web.
 Esperamos que este proyecto sea útil para nuestros clientes y que nos ayude a demostrar nuestras capacidades.
 
+
 Grupo conformado.
 * **David R Pinzón**
 * **Yorman**
-* **Roman**
 * **Jaime Zapata (Docente)**
 
 Este proyecto contiene el código fuente de nuestro sitio web, diseñado para ofrecer a nuestros clientes una experiencia digital completa: menú interactivo, información sobre nuestra historia y valores, y formas sencillas de contactarnos.
@@ -21,9 +21,15 @@ Este proyecto contiene el código fuente de nuestro sitio web, diseñado para of
 * **Página de Nosotros (nosotros.html):** Conoce nuestra historia, valores y al equipo detrás de Sabor Urbano.
 * **Página de Contacto (contacto.html):** Formulario de contacto, información de contacto y ubicación en el mapa.
 * **Diseño Responsivo:** Adaptado para una visualización óptima en dispositivos móviles, tablets y ordenadores.
+* **Comentarios en la página de Menú:** Los comentarios se almacenan en una base de datos MySQL y se muestran en la página de Menú.
 
 ## Tecnologías Usadas
 
 * **HTML5:** Para la estructura de las páginas.
 * **CSS3:** Para el diseño y estilo, incluyendo la paleta de colores y las animaciones.
 * **JavaScript:** Para la interactividad del menú y otras funciones dinámicas.
+* **MySQL:** Para la base de datos de los comentarios.
+* **Git:** Para el control de versiones.
+* **GitHub:** Para el almacenamiento de repositorios.
+* **Visual Studio Code:** Para la edición de código.
+* **XAMPP:** Para la ejecución local del servidor web.
