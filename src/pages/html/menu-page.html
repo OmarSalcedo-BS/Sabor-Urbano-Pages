@@ -16,6 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Licorice&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Story+Script&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
         <link rel="stylesheet" href="../css/responsive.css" />
+      
 </head>
 
 <body>
@@ -79,9 +80,15 @@
             
             <div class="comentario-form-box">
                 <form id="form-nuevo-comentario" class="nuevo-comentario-form">
+                    <label class="nombreUsuario" for="nombreUsuario">Ingresa tu nombre</label>
+                    <input class="usuario"
+                        type="text"
+                        id="nombre-usuario"
+                        placeholder="Ingresa tu nombre sin pena y con confianza pues 😁"
+                        required/>
                     <textarea 
                         id="comentario-descripcion" 
-                        placeholder="Escribe tu opinión sobre nuestro menú..." 
+                        placeholder="Escribe tu opinión sobre nuestro menú... Tus opiniones son muy importantes para nosotros." 
                         required
                     ></textarea>
                     <button type="submit" class="btn btn-enviar-comentario">
@@ -98,6 +105,7 @@
 
     <script src="../../utils/menuScript.js"></script>
     <script src="../../../index.js"></script>
+    <script src="../../utils/dataBase.js"></script>
 
 </body>
 

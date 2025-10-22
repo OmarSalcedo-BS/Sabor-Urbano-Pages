@@ -361,22 +361,39 @@
     color: #555;
 }
 
-/* Estilo para el botón de eliminar (solo visible para admins/propios usuarios) */
-.btn-eliminar-comentario {
-    background: none;
-    border: none;
-    color: #cc0000;
-    cursor: pointer;
-    font-size: 0.85em;
-    padding: 0;
-    margin-top: 5px;
-    transition: color 0.2s;
-    /* Para posicionar en la esquina, podrías usar absolute */
-    /* position: absolute;
-    top: 10px;
-    right: 15px; */
+.usuario {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9em;
+    margin-right: 10px;
 }
 
-.btn-eliminar-comentario:hover {
-    color: #ff0000;
+.nombreUsuario {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9em;
+    margin-right: 10px;
 }
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9em;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+
+
+
