@@ -66,7 +66,7 @@ header .container {
   font-weight: 600;
   font-style: normal;
   font-size: 2.4rem;
-  color: var(--secondary-color);
+  color: var(--dark-color);
   position: relative;
   padding-left: 20px;
   transition: color 0.3s ease;
@@ -95,7 +95,7 @@ nav a {
   font-weight: 550;
   font-style: normal;
   text-decoration: none;
-  color: #271803;
+  color: var(--dark-color);
   font-weight: 600;
   transition: color 0.3s ease;
   font-size: 6vh;
@@ -149,7 +149,6 @@ nav::after {
 
 .principal-seccion {
   font-size: 125%;
-  height: 90vh;
   display: flex;
   align-items: left;
   justify-content: flex-start;
@@ -162,7 +161,7 @@ nav::after {
   background-repeat: no-repeat;
   /* 3. Opcional: Centra la imagen en el contenedor */
   background-position: center -75vh;
-  height: 84vh;
+  height: 75vh;
   position: relative;
 }
 .principal-seccion::after {
@@ -186,7 +185,7 @@ nav::after {
 .principal-contenedor h1 {
   font-family: "Licorice", cursive;
   font-weight: 200;
-  font-style: normal;
+  font-style: oblique;
   position: relative;
   font-size: 7.3rem;
   margin-bottom: 20px;
@@ -575,14 +574,32 @@ footer small {
 }
 
 .nosotros-hero {
-  height: 60vh;
-  padding-top: 60px;
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  text-align: left;
-  background: linear-gradient(to right, #6a8c3d, #8c6a00);
+  text-align: center;
+  background-image: url(public/ProductosMenu/AlitasConPapas.jpg);
   color: white;
+  padding-top: 80px;
+  background-size: cover;
+  /* 2. Evita que la imagen se repita si es pequeña */
+  background-repeat: no-repeat;
+  /* 3. Opcional: Centra la imagen en el contenedor */
+  background-position: 10% 65%;
+  height: 70vh;
+  position: relative;
+}
+.nosotros-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 9%; /* La altura del desvanecimiento */
+  
+  /* Gradiente que va de transparente a blanco. */
+  background: linear-gradient(to top, white, transparent);
+  z-index: 1;
 }
 
 .nosotros-hero .container {
@@ -591,15 +608,23 @@ footer small {
 }
 
 .nosotros-hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-family: "Licorice", cursive;
+  font-weight: 100;
+  font-style: oblique;
+  font-size: 7rem;
+  font-weight: 550;
+  margin-bottom: 5px;
+  color: var(--dark-color);
 }
 
 .nosotros-hero p {
-  font-size: 1.2rem;
+  font-family: "Licorice", cursive;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2.9rem;
   max-width: 600px;
-  color: #f0f0f0;
+  color: var(--dark-color);
+margin-top: -5%;
 }
 
 .nosotros-content {
@@ -687,12 +712,12 @@ footer small {
   align-items: center;
   justify-content: center;
   margin: 0 auto 15px;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--dark-color);
 }
 
 .valor-icon i {
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--dark-color);
 }
 
 .valor-card h3,
@@ -727,6 +752,7 @@ footer small {
   color: white;
   text-align: center;
   padding: 80px 20px;
+  height: 75vh;
 }
 
 .stats-section h2 {
