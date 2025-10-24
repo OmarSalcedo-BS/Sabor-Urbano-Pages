@@ -6,7 +6,7 @@ const menuItems = [
         description: 'Pan, carne, lechuga, cebolla caramelizada, tomate y queso',
         price: 19000,
         category: 'hamburguesas',
-        popular: true,
+        popular: false,
         image: '../../../public/ProductosMenu/Hamburguesa.jpg'
     },
     {
