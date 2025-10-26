@@ -12,6 +12,11 @@ async function cargarComentarios() {
         const response = await fetch(`${API_BASE_URL}/comentarios`);
         const comentarios = await response.json();
 
+        // Ordenar por fecha descendente (más recientes primero)
+        if (Array.isArray(comentarios)) {
+            comentarios.sort((a, b) => new Date(b.FechaComentario || 0) - new Date(a.FechaComentario || 0));
+        }
+
         listaComentarios.innerHTML = '';
 
         if (comentarios.length === 0) {

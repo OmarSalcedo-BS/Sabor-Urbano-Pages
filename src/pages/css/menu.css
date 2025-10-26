@@ -142,6 +142,19 @@
     max-height: 60vh;
     overflow-y: auto;
   }
+
+  /* Para pantallas pequeñas mostrar comentarios en columna */
+  .comentarios-grid {
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 10px;
+  }
+
+  .comentario-form-box,
+  .lista-comentarios {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
 }
 
 .menu-item {
@@ -273,7 +286,7 @@
 }
 
 .comentarios-container {
-    max-width: 900px; /* Limita el ancho para mejor lectura */
+  max-width: 1100px; /* Limita el ancho para mejor lectura (aumentado para columnas) */
     margin: 0 auto;
 }
 
@@ -283,6 +296,32 @@
     color: #333;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+}
+
+/* Contenedor que alinea el formulario (izquierda) y la lista (derecha) */
+.comentarios-grid {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.comentario-form-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0; /* removido para que la altura la controle el grid */
+  flex: 0 0 420px; /* ancho fijo preferido, pero flexible */
+  max-width: 45%;
+}
+
+.lista-comentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1 1 0; /* ocupa el espacio restante a la derecha */
+  max-width: 55%;
 }
 
 /* --- Formulario de Comentarios --- */
@@ -328,6 +367,14 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Limitar la vista a ~4 comentarios y permitir scroll interno */
+  max-height: 420px; /* aproximado para 4 items (ajustable) */
+  overflow-y: auto;
+  padding-right: 8px; /* espacio para la barra de scroll */
+
 }
 
 .comentario-item {
@@ -393,6 +440,7 @@ textarea {
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
+    height: 110px;
 }
 
 
