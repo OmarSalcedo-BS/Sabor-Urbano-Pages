@@ -324,6 +324,7 @@
 
 /* --- Lista de Comentarios Existentes --- */
 .lista-comentarios {
+  flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     gap: 15px;
