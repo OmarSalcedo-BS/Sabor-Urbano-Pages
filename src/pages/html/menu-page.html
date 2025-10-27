@@ -1,113 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menú - Sabor Urbano</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="../../../index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/menu.css">
-      <link
-    href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Licorice&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Story+Script&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-        <link rel="stylesheet" href="../css/responsive.css" />
-      
-</head>
+    <link rel="stylesheet" href="../../../index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Licorice&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Story+Script&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="container">
-            <div class="main-logo">
-                <a href="../../../index.html">
-                    <img src="../../../public/LogoPrincipal.jpg" alt="Logo Sabor Urbano" />
-                </a>
-                <span class="logo-text">Sabor Urbano</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="../../../index.html">Inicio</a></li>
-                    <li><a href="./menu-page.html" class="active">Menú</a></li>
-                    <li><a href="./nosotros-web.html">Nosotros</a></li>
-                    <li><a href="./contacto-page.html">Contacto</a></li>
-                </ul>
-            </nav>
+      <div class="container">
+        <div class="main-logo">
+          <a href="../../../index.html">
+            <img
+              src="../../../public/LogoPrincipal.jpg"
+              alt="Logo Sabor Urbano"
+            />
+          </a>
+          <span class="logo-text">Sabor Urbano</span>
         </div>
+        <nav>
+          <ul>
+            <li><a href="../../../index.html">Inicio</a></li>
+            <li><a href="./menu-page.html" class="active">Menú</a></li>
+            <li><a href="./nosotros-web.html">Nosotros</a></li>
+            <li><a href="./contacto-page.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main class="menu-page">
-        <section class="menu-hero">
-            <h1>Nuestro Menú</h1>
-            <p>Descubre nuestros deliciosos platillos preparados con ingredientes frescos</p>
-        </section>
+      <section class="menu-hero">
+        <h1>Nuestro Menú</h1>
+        <p>
+          Descubre nuestros deliciosos platillos preparados con ingredientes
+          frescos
+        </p>
+      </section>
 
-        <section class="menu-content">
+      <section class="menu-content">
+        <div id="category-cards" class="category-cards"></div>
 
-            <div id="category-cards" class="category-cards"></div>
-
-
-            <div class="menu-grid">
-            </div>
-        </section>
+        <div class="menu-grid"></div>
 
         <div class="order-summary-sidebar" id="order-sidebar">
-            <div class="order-box">
-                <h4>Tu Pedido</h4>
-                <div class="order-items">
-                </div>
-                <div class="order-total">
-                    <p>Total:</p>
-                    <p id="total-price">$0</p>
-                </div>
-                <button id="send-order-btn" class="btn whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
-                </button>
+          <div class="order-box">
+            <h4>Tu Pedido</h4>
+            <div class="order-items"></div>
+            <div class="order-total">
+              <p>Total:</p>
+              <p id="total-price">$0</p>
             </div>
+            <button id="send-order-btn" class="btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+            </button>
+          </div>
         </div>
 
-        <button id="cart-toggle" class="cart-toggle" aria-label="Mostrar carrito">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">0</span>
+        <button
+          id="cart-toggle"
+          class="cart-toggle"
+          aria-label="Mostrar carrito"
+        >
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
         </button>
-
+      </section>
     </main>
-        <section class="comentarios-section">
-        <div class="comentarios-container">
-            <h2>Opiniones y Comentarios</h2>
-            
-            <div class="comentarios-grid">
-            <div class="comentario-form-box">
-                <form id="form-nuevo-comentario" class="nuevo-comentario-form">
-                    <label class="nombreUsuario" for="nombreUsuario">Ingresa tu nombre</label>
-                    <input class="usuario"
-                        type="text"
-                        id="nombre-usuario"
-                        placeholder="Ingresa tu nombre sin pena y con confianza pues 😁"/>
-                    <textarea 
-                        id="comentario-descripcion" 
-                        placeholder="Escribe tu opinión sobre nuestro menú... Tus opiniones son muy importantes para nosotros." 
-                        required
-                    ></textarea>
-                    <button type="submit" class="btn btn-enviar-comentario">
-                        <i class="fas fa-paper-plane"></i> Enviar Comentario
-                    </button>
-                </form>
-            </div>
+    <section class="comentarios-section">
+      <div class="comentarios-container">
+        <h2>Opiniones y Comentarios</h2>
 
-            <div id="lista-comentarios" class="lista-comentarios">
-                <p class="loading-message">Cargando comentarios...</p>
-            </div>
-            </div> <!-- .comentarios-grid -->
+        <div class="comentarios-grid">
+          <div class="comentario-form-box">
+            <form id="form-nuevo-comentario" class="nuevo-comentario-form">
+              <label class="nombreUsuario" for="nombreUsuario"
+                >Ingresa tu nombre</label
+              >
+              <input
+                class="usuario"
+                type="text"
+                id="nombre-usuario"
+                placeholder="Ingresa tu nombre sin pena y con confianza pues 😁"
+              />
+              <textarea
+                id="comentario-descripcion"
+                placeholder="Escribe tu opinión sobre nuestro menú... Tus opiniones son muy importantes para nosotros."
+                required
+              ></textarea>
+              <button type="submit" class="btn btn-enviar-comentario">
+                <i class="fas fa-paper-plane"></i> Enviar Comentario
+              </button>
+            </form>
+          </div>
+
+          <div id="lista-comentarios" class="lista-comentarios">
+            <p class="loading-message">Cargando comentarios...</p>
+          </div>
         </div>
+        <!-- .comentarios-grid -->
+      </div>
     </section>
 
     <script src="../../utils/menuScript.js"></script>
     <script src="../../../index.js"></script>
     <script src="../../utils/dataBase.js"></script>
-
-</body>
-
+  </body>
 </html>
