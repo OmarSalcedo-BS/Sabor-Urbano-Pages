@@ -1,28 +1,112 @@
-.menu-page {
+/* .menu-page {
   padding-top: 100px;
-}
+} */
 
+/* === MENU HERO (reemplaza tu .menu-hero actual) === */
 .menu-hero {
+  background-position: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 50px 20px 20px;
+  /* height: 55vh; */
+  min-height: 10vh;
+  padding-top: 20px;
+  /* Imagen de fondo (cubre, no repite, centrada) */
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.05) 0%
+    ),
+    url(../../../public/ProductosMenu/Grani.jpg)center/cover no-repeat;
+  /* Si tu imagen está en src/pages/images, usa: url('../images/menu-hero-bg.jpg') */
+  /* color: #fff; */
+  background-size: cover;
+  position: relative;
+  
 }
-.menu-hero p {
+
+/* Desvanecido inferior hacia blanco */
+.menu-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9%;
+  background: linear-gradient(to top, #fff, transparent);
+  z-index: 1;
+}
+
+/* Contenedor interno y textos */
+.menu-hero__content {
+  max-width: 600px;
+  padding-left: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-hero__title {
   font-family: "Licorice", cursive;
+  font-weight: 200;
+  font-style: oblique;
+  font-size: 9rem;
+  line-height: 1.1;
+  margin: 20px;
+  color: var(--dark-color, #111);
+  -webkit-text-stroke: 0.5px #000;
+ text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  transform: translateX(-30%);
+  margin-left: -5px;
+}
+
+/* .menu-hero__subtitle{
+  font-family: "Licorice", cursive;
+  font-style: oblique;
   font-weight: 600;
-  font-style: normal;
-  font-size: 2.5rem;
-  margin-bottom: 5px;
-  color: var(--dark-color, #222);
+  font-size: 3rem;
+  margin: 0 0 50px;
+  color: var(--dark-color, #111);
+  -webkit-text-stroke: .2px #000;
+ text-shadow: 0 0 12px rgba(100, 175, 60, 0.85);
+} */
+
+/* === Responsive === */
+@media (max-width: 992px) {
+  .menu-hero {
+    min-height: 60vh;
+    padding-top: 60px;
+  }
+  .menu-hero__content {
+    padding-left: 40px;
+    padding-right: 20px;
+    max-width: 90%;
+  }
+  .menu-hero__title {
+    font-size: 4.2rem;
+  }
+  .menu-hero__subtitle {
+    font-size: 2.2rem;
+  }
 }
 
-.menu-hero h1 {
-  font-family: "Licorice", cursive;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 7rem;
-  margin-top: -70px;
+@media (max-width: 600px) {
+  .menu-hero {
+    min-height: 50vh;
+    padding-top: 40px;
+    background-position: center;
+  }
+  .menu-hero__content {
+    padding-left: 20px;
+  }
+  .menu-hero__title {
+    font-size: 3.2rem;
+  }
+  .menu-hero__subtitle {
+    font-size: 1.8rem;
+  }
 }
-
 .menu-content {
   padding: 40px 20px;
 }
@@ -42,13 +126,16 @@
 }
 
 .category-card {
-  background: linear-gradient(
+ background: linear-gradient(
     180deg,
-    rgba(44, 18, 18, 0.95) 0%,
-    rgba(201, 125, 10, 0.95) 100%
+    rgba(255, 255, 255, 0.12) 0%,   /* brillo blanco leve arriba */
+    rgba(20, 20, 20, 0.98) 20%,     /* negro profundo dominante */
+    rgba(55, 35, 10, 0.95) 80%,     /* marrón oscuro intermedio */
+    rgba(230, 180, 50, 0.25) 100%   /* toque cálido abajo */
   );
   border: 2px solid;
-  border-radius: 999px; /* pill look */
+ border-radius: 50px;
+ box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
   padding: 10px 18px;
   text-align: center;
   cursor: pointer;
@@ -60,7 +147,8 @@
   justify-content: center;
   gap: 5px;
   font-weight: 600;
-  color: var(--dark-color, #222);
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-card h4 {
@@ -84,7 +172,8 @@
 
 /* Hover subtle effect */
 .category-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(230, 180, 50, 0.45);
 }
 
 .order-summary-sidebar {

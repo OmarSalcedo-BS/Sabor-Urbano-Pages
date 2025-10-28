@@ -47,43 +47,39 @@
       </div>
     </header>
     <main class="menu-page">
-      <section class="menu-hero">
-        <h1>Nuestro Menú</h1>
-        <p>
-          Descubre nuestros deliciosos platillos preparados con ingredientes
-          frescos
-        </p>
-      </section>
+    <section class="menu-hero">
+      <div class="menu-hero__content">
+        <h1 class="menu-hero__title">Nuestro Menú</h1>
+        <!-- <p class="menu-hero__subtitle">
+          Descubre nuestros deliciosos platillos preparados con ingredientes frescos
+        </p> -->
+      </div>
+    </section>
 
-      <section class="menu-content">
-        <div id="category-cards" class="category-cards"></div>
+    <section class="menu-content">
+      <div id="category-cards" class="category-cards"></div>
+      <div class="menu-grid"></div>
 
-        <div class="menu-grid"></div>
-
-        <div class="order-summary-sidebar" id="order-sidebar">
-          <div class="order-box">
-            <h4>Tu Pedido</h4>
-            <div class="order-items"></div>
-            <div class="order-total">
-              <p>Total:</p>
-              <p id="total-price">$0</p>
-            </div>
-            <button id="send-order-btn" class="btn whatsapp-btn">
-              <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
-            </button>
+      <div class="order-summary-sidebar" id="order-sidebar">
+        <div class="order-box">
+          <h4>Tu Pedido</h4>
+          <div class="order-items"></div>
+          <div class="order-total">
+            <p>Total:</p>
+            <p id="total-price">$0</p>
           </div>
+          <button id="send-order-btn" class="btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+          </button>
         </div>
+      </div>
 
-        <button
-          id="cart-toggle"
-          class="cart-toggle"
-          aria-label="Mostrar carrito"
-        >
-          <i class="fas fa-shopping-cart"></i>
-          <span class="cart-count">0</span>
-        </button>
-      </section>
-    </main>
+      <button id="cart-toggle" class="cart-toggle" aria-label="Mostrar carrito">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </button>
+    </section>
+  </main>
     <section class="comentarios-section">
       <div class="comentarios-container">
         <h2>Opiniones y Comentarios</h2>
@@ -119,8 +115,8 @@
       </div>
     </section>
 
+    <script src="../../utils/dataBase.js"></script>
     <script src="../../utils/menuScript.js"></script>
     <script src="../../../index.js"></script>
-    <script src="../../utils/dataBase.js"></script>
   </body>
 </html>
